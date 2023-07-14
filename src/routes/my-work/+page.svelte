@@ -11,7 +11,7 @@
 </h1>
 <hr />
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 sm:gap-2">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-2">
     {#each data?.works as work}
         <div>
             {#if work.url}
@@ -38,7 +38,7 @@
                 <a class="border-gray-400 border-[1px] py-1 px-2 rounded-md inline-block" href={$page.url + work.url}>Read More</a>
             {/if}
 
-            <hr class="h-0 w-8 mx-auto border-2 mb-4" />
+            <hr class="h-0 w-8 mx-auto border-2 mb-4 sm:hidden" />
         </div>
     {/each}
 </div>

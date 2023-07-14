@@ -2,13 +2,13 @@
 import { page } from "$app/stores"
 </script>
 
-<nav class="w-full bg-[#fff]">
+<nav class="max-w-5xl mx-auto bg-[#fff]">
     <ul class="">
         <li class:active={$page.route.id == '/'}>
             <a href="/">
                 <iconify-icon icon="mdi:home" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
-                    Home
+                    Hello!
                 </span>
             </a>
         </li>
@@ -16,7 +16,7 @@ import { page } from "$app/stores"
             <a href="/my-work">
                 <iconify-icon icon="mdi:code" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
-                    Work
+                    My&nbsp;Work
                 </span>
             </a>
         </li>
@@ -64,7 +64,7 @@ import { page } from "$app/stores"
     }
     a {
         display: inline-block;
-        @apply px-2;
+        @apply px-6;
         @apply py-4;
         text-decoration: none;
         color: black;

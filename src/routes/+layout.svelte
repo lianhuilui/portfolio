@@ -18,7 +18,7 @@
 
 <Nav/>
 
-<main>
+<main class="mx-auto max-w-5xl">
     <slot />
 </main>
 
@@ -41,9 +41,12 @@
         @apply p-0;
     }
     :global(h1) {
-        @apply text-5xl py-3 uppercase;
+        @apply text-5xl py-3;
     }
     :global(h2) {
-        @apply text-4xl py-3 uppercase;
+        @apply text-4xl py-3;
+    }
+    :global(h3) {
+        @apply text-3xl py-3;
     }
 </style>

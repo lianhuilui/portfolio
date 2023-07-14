@@ -7,7 +7,14 @@
     class="w-full aspect-[3/2] relative"
     style="background-image: url({image}); background-size: 100%;"
 >
-    <h2 class="text-2xl bottom-2 right-4 absolute">
+    <h2 class="text-2xl bottom-0 right-0 absolute">
         {title}
     </h2>
 </div>
+
+<style>
+    h2 {
+        @apply bg-black text-white;
+        @apply px-4;
+    }
+</style>

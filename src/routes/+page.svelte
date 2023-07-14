@@ -3,6 +3,12 @@
 <div class="text-5xl py-3 uppercase aspect-video bg-red-200" style="background-position: 0 50%; background-image: url('http://placehold.co/600x400'); background-size: cover">&nbsp;</div>
 
 
+<h2>Skills</h2>
+
+<pre>
+SQL, JavaScript, Python, Svelte
+</pre>
+
 <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod cum ex numquam quam quae suscipit sunt ullam! Illum tempore et tenetur qui ea nemo neque ex quod, mollitia itaque.
 </p>
