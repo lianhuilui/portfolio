@@ -1,55 +1,192 @@
 <script>
-    import {cubicIn, cubicInOut} from 'svelte/easing'
-    import Page from "../../components/page.svelte"
+    import {onMount} from 'svelte';
 
     let scroll = 0;
     let height = 0;
     let oHeight = 0;
+    let h = 0;
 
-    let h;
+    let code = 'boo';
+
+    let anitext = 'hello world';
 
     $: percent = scroll / height;
     $: p = scroll / (h - height)
+
+    let animating = false; 
+
+    onMount(() => {
+        console.log('onmount')
+        if (document) {
+            let html = document.getElementsByTagName('html');
+            if (html) {
+                code = '<!DOCTYPE html>\n<html lang="en">\n' + html[0].innerHTML + '\n</html>'
+            } else {
+                code = 'no'
+            }
+        } else {
+            code = 'nodoc'
+        }
+    })
+
+    function matrix (str) {
+        if (!animating) {
+            if (str == anitext) return;
+
+            animating = true;
+
+            let current = anitext;
+
+            let p0 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = current.substr(0, 4);
+                    resolve();
+                }, 100)
+            })
+            let p1 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = current.substr(0, 3);
+                    resolve();
+                }, 100)
+            })
+            let p2 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = current.substr(0, 2);
+                    resolve();
+                }, 200)
+            })
+            let p3 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = current.substr(0, 1);
+                    resolve();
+                }, 320)
+            })
+            let p4 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = str.substr(0, 4);
+                    resolve();
+                }, 380)
+            })
+            let p5 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    anitext = str;
+                    resolve();
+                }, 420)
+            })
+
+            Promise.all([p0, p1, p2, p3, p4, p5]).then(() => {
+                console.log("stopped!")
+                animating = false;
+            })
+
+        }
+    }
+
+    function scrolling() {
+        /*
+        if (p < 0.10) {
+            matrix('bye')
+        }
+        else if (p < 0.20) {
+            matrix('hello!')
+        }
+        */
+    }
 </script>
 
 <svelte:window bind:scrollY={scroll} bind:innerHeight={height}
     bind:outerHeight={oHeight}
+    on:scroll={scrolling}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; background: white; width: 100vw; position: absolute; top: 0; left: 0; height: 1000vh; z-index: 20;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
-    <div id="test">
-        <div class="text">
-            Get
-        </div>
-        <div class="view">
-            <div class="parallax">
-                    100%
-                <br>
-                    10%
-                <br>
-                    50%
-                <br>
-                    100%
+    <div id="wrapper_wrapper">
+        <div id="wrapper">
+            <div class="top-layer">
+                <div class="text">Hello</div>
             </div>
+            <div class="top-layer">
+                <div class="text">I&nbsp;</div>
+                <div class="view">
+                    <div class="parallax">
+                        <div class="parallax1">
+                            <div class="verb">
+                                do&nbsp;
+                            </div>
+                            <div class="noun">
+                                Frontend<br>
+                                    Backend<br>
+                            </div>
+                        </div>
+                        <div class="parallax2">
+                            <div class="verb">
+                                use&nbsp;
+                            </div>
+                            <div class="noun">
+                                Svelte<br>
+                                    Django<br>
+                                    NodeJS<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="anitext" style="display: none">
+        {anitext}
+    </div>
+
+    <div class="top-layer">
+        <code>{code}</code>
+    </div>
+
+    <div id="picture_wrapper">
+        <div class="picture">
+            hi i am picture
+        </div>
+        <div class="picture">
+            hi i am picture 2
+        </div>
+        <div class="picture">
+            hi i am picture 3
+        </div>
+        <div class="picture">
+            hi i am picture 4
+        </div>
+        <div class="picture">
+            hi i am picture 5
+        </div>
+        <div class="picture">
+            hi i am picture 6
         </div>
     </div>
 
     <div id="percent">
     </div>
 
-    <div style="position: fixed; right: 0; z-index: 30;">
-        scroll       {scroll}<br>
-            height       {height}<br>
-            percent       {percent}<br>
-            p       {p}<br>
-            h       {h}<br>
+    <div style="position: fixed; bottom: 0; right: 0; display: fixed; z-index: 30; text-align: right;">
+        scroll       {scroll}px<br>
+            height       {height}px<br>
+            percent       {parseInt(percent * 100)}vh<br>
+            p       {parseInt(p * 100)}%<br>
+            h       {h}px<br>
     </div>
 
 </div>
 
 <style>
+    :global(:root) {
+        --fontsize: 50px;
+        --lhf: 1.0;
+        --headerpadding: 5vh;
+        --picturesize: calc(100vh - (var(--headerpadding) * 2 + var(--fontsize)));
+    }
+
     :global(:root *) {
+        animation-timing-function: ease;
         /* Pause the animation */
         animation-play-state: paused;
         /* Bind the animation to scroll */
@@ -57,66 +194,107 @@
         /* These last 2 properites clean up overshoot weirdness */
         animation-iteration-count: 1;
         animation-fill-mode: both;
+        animation-duration: 1s;
     }
 
-    @keyframes run {
-    from {
-        top:50vh;
+    @keyframes wrapper_wrapper {
+    from, 30% {
+    transform: translateY(0); 
     }
-    50% {
-        top:0vh;
+    35%, to {
+    transform: translateY(-100px); 
     }
-    top {
-        top:0vh;
     }
+
+    @keyframes top {
+    from { transform: translateY(0); }
+    5% { transform: translateY(0); }
+    10% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    30% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    35% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
     }
 
     @keyframes parallax {
-    from {
-        transform: translateY(0);
-    }
-    5% {
-        transform: translateY(0px);
-    }
-    10% {
-        transform: translateY(calc(-1 * var(--fs)));
-    }
-    15% {
-        transform: translateY(calc(-1 * var(--fs)));
-    }
-    20% {
-        transform: translateY(calc(-2 * var(--fs)));
-    }
-    25% {
-        transform: translateY(calc(-2 * var(--fs)));
-    }
-    30% {
-        transform: translateY(calc(-3 * var(--fs)));
-    }
-    to {
-        transform: translateY(calc(-3 * var(--fs)));
-    }
+    from { transform: translateY(0); }
+    15% { transform: translateY(0); }
+    20% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    to { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
     }
 
+    @keyframes noun {
+    from { transform: translateY(0); }
+    10% { transform: translateY(0); }
+    15% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    20% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    25% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    }
+
+    @keyframes noun2 {
+    from { transform: translateY(0); }
+    20% { transform: translateY(0); }
+    25% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    30% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    }
+
+    /* animation */
+    .top-layer { animation-name: top; }
+    .parallax { animation-name: parallax; }
+    .parallax1 .noun { animation-name: noun; }
+    .parallax2 .noun { animation-name: noun2; }
+
+    /* styles */
+    /* 346442 */
+
+    #wrapper_wrapper {
+        animation-name: wrapper_wrapper;
+        padding: var(--headerpadding);
+        position: fixed;
+        top: max(calc(30vh - (var(--scroll) * 1px)), 0px);
+        background: transparent;
+        z-index: 10;
+    }
+    #wrapper {
+        position: relative;
+        top: 50%;
+        width: 100vw;
+        display:block;
+        overflow-y: hidden;
+        height: calc(var(--lhf) * var(--fontsize));
+    }
     .text, .view {
-        --fs: 100px;
-        font-size: var(--fs);
-        display: inline-block;
-        padding: 0;
-        height: 1em;
-        line-height: 1em;
-        margin: 0;
+        font-size: var(--fontsize);
+        display: block;
+        height: calc(var(--lhf) * 1em);
+        line-height: calc(var(--fontsize) * var(--lhf));
         overflow: hidden;
-        color: white;
     }
-
+    .top-layer code, .top-layer pre {
+        font-family: monospace;
+        color: #ccc;
+    }
+    .top-layer {
+        display: flex;
+        width: 100%;
+        height: var(--fontsize);
+    }
     .parallax {
-        animation-name: parallax;
-        animation-duration: 1s;
+        display: flex;
+        flex-direction: column;
+    }
+    .parallax1, .parallax2 {
+        height: calc(var(--fontsize) * var(--lhf));
+        display: flex;
+    }
+    .noun, .verb {
+        display: block;
     }
     #percent {
-        bottom: 0;
+        top: 0;
         width: 100%;
+        z-index: 1000;
         text-align: center;
         position: fixed;
     }
@@ -124,12 +302,46 @@
         counter-reset: per calc(var(--percent) * 100);
         content: counter(per) '%'
     }
-    #test {
-        animation-name: run;
-        animation-duration: 1s;
-        position: fixed;
-        background: red;
+    #anitext {
+        width: 100vw;
+        font-family: monospace;
+        background: transparent;
+        z-index: 10;
+        font-size: var(--fontsize);
+        position:fixed;
+        top: 10px;
+    }
+
+    /* PICTURE */
+    /* animation */
+    @keyframes picture {
+    from { transform: translateY(0)}
+    5% { transform: translateY(0)}
+    10% { transform: translateY(calc(-1 * var(--picturesize)))}
+    15% { transform: translateY(calc(-2 * var(--picturesize)))}
+    20% { transform: translateY(calc(-3 * var(--picturesize)))}
+    25% { transform: translateY(calc(-4 * var(--picturesize)))}
+    30% { transform: translateY(calc(-5 * var(--picturesize)))}
+    35% { transform: translateY(calc(-6 * var(--picturesize)))}
+    to { transform: translateY(calc(-6 * var(--picturesize)))}
+    }
+    .picture {
+        animation-name: picture;
+    }
+    /* styles */
+    #picture_wrapper {
+        z-index: 30;
+        height: var(--picturesize);
         width: 100%;
-        height: 100%;
+        overflow: hidden;
+        z-index: 9;
+        position: fixed;
+        top: max(calc(60vh - (var(--scroll) * 1px)), calc(2 * var(--headerpadding) + var(--fontsize)));
+    }
+    .picture {
+        height: var(--picturesize);
+        font-size: var(--fontsize);
+        background: transparent;
+        padding: var(--headerpadding);
     }
 </style>
