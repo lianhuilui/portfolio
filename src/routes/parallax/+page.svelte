@@ -107,6 +107,9 @@
                 <div class="text">Hello</div>
             </div>
             <div class="top-layer">
+                <div class="text">I'm Lian.</div>
+            </div>
+            <div class="top-layer">
                 <div class="text">I&nbsp;</div>
                 <div class="view">
                     <div class="parallax">
@@ -145,22 +148,25 @@
 
     <div id="picture_wrapper">
         <div class="picture">
-            hi i am picture
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
         <div class="picture">
-            hi i am picture 2
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
         <div class="picture">
-            hi i am picture 3
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
         <div class="picture">
-            hi i am picture 4
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
         <div class="picture">
-            hi i am picture 5
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
         <div class="picture">
-            hi i am picture 6
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
+        </div>
+        <div class="picture">
+            <img src="http://placehold.co/600x400" alt="" class='w-full'>
         </div>
     </div>
 
@@ -180,13 +186,13 @@
 <style>
     :global(:root) {
         --fontsize: 50px;
-        --lhf: 1.0;
+        --lineheight: 1.15;
         --headerpadding: 5vh;
         --picturesize: calc(100vh - (var(--headerpadding) * 2 + var(--fontsize)));
     }
 
     :global(:root *) {
-        animation-timing-function: ease;
+        animation-timing-function: linear;
         /* Pause the animation */
         animation-play-state: paused;
         /* Bind the animation to scroll */
@@ -198,45 +204,46 @@
     }
 
     @keyframes wrapper_wrapper {
-    from, 30% {
+    from, 35% {
     transform: translateY(0); 
     }
-    35%, to {
-    transform: translateY(-100px); 
+    40%, to {
+    transform: translateY(var(--headerpadding) * 2 + var(--fontsize)); 
     }
     }
 
     @keyframes top {
     from { transform: translateY(0); }
     5% { transform: translateY(0); }
-    10% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    30% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    35% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
-    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    10% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    15% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    40% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
+    to { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes parallax {
     from { transform: translateY(0); }
-    15% { transform: translateY(0); }
-    20% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    to { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
+    20% { transform: translateY(0); }
+    25% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun {
     from { transform: translateY(0); }
-    10% { transform: translateY(0); }
-    15% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    20% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    25% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
-    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    15% { transform: translateY(0); }
+    20% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    25% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    30% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun2 {
     from { transform: translateY(0); }
-    20% { transform: translateY(0); }
-    25% { transform: translateY(calc(-1 * var(--lhf) * var(--fontsize))); }
-    30% { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
-    to { transform: translateY(calc(-2 * var(--lhf) * var(--fontsize))); }
+    25% { transform: translateY(0); }
+    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     }
 
     /* animation */
@@ -262,17 +269,17 @@
         width: 100vw;
         display:block;
         overflow-y: hidden;
-        height: calc(var(--lhf) * var(--fontsize));
+        height: calc(var(--lineheight) * var(--fontsize));
     }
     .text, .view {
         font-size: var(--fontsize);
         display: block;
-        height: calc(var(--lhf) * 1em);
-        line-height: calc(var(--fontsize) * var(--lhf));
+        height: calc(var(--lineheight) * 1em);
+        line-height: calc(var(--fontsize) * var(--lineheight));
         overflow: hidden;
     }
     .top-layer code, .top-layer pre {
-        font-family: monospace;
+        font-family: 'Courier New', Courier, monospace;
         color: #ccc;
     }
     .top-layer {
@@ -285,7 +292,7 @@
         flex-direction: column;
     }
     .parallax1, .parallax2 {
-        height: calc(var(--fontsize) * var(--lhf));
+        height: calc(var(--fontsize) * var(--lineheight));
         display: flex;
     }
     .noun, .verb {
@@ -323,10 +330,12 @@
     25% { transform: translateY(calc(-4 * var(--picturesize)))}
     30% { transform: translateY(calc(-5 * var(--picturesize)))}
     35% { transform: translateY(calc(-6 * var(--picturesize)))}
-    to { transform: translateY(calc(-6 * var(--picturesize)))}
+    40% { transform: translateY(calc(-7 * var(--picturesize)))}
+    to { transform: translateY(calc(-7 * var(--picturesize)))}
     }
     .picture {
         animation-name: picture;
+        animation-timing-function: linear;
     }
     /* styles */
     #picture_wrapper {
