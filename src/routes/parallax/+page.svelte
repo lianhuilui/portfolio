@@ -173,38 +173,37 @@
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 400vh; width: 100vw;" class="flyby text-center">
-        CONTACT
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
         PROJECTS
     </div>
 
+    <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
+        BLOG
+    </div>
+
     <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
-        LINKS
+        CONTACT ME
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
-        THANKS
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
-        FOR
+        THANKS
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 650vh; width: 100vw;" class="flyby text-center">
-        STOPPING
+        FOR
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-        BY!
+        STOPPING
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
-        GOOD
+        BY
     </div>
     <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
-        BYE
+        .
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
@@ -216,7 +215,7 @@
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 950vh; width: 100vw;" class="flyby text-center">
-        END.
+        THE END
     </div>
 
     <div id="picture_wrapper">
@@ -428,6 +427,6 @@
     }
 
     .flyby {
-        font-size: 30px;
+        font-size: 10vw;
     }
 </style>
