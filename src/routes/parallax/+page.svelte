@@ -1,5 +1,5 @@
 <script>
-    import {onMount} from 'svelte';
+    import {onMount} from 'svelte'
 
     let scroll = 0;
     let height = 0;
@@ -15,8 +15,16 @@
 
     let animating = false; 
 
+    let imgs = [
+        'http://placehold.co/600x600',
+        'http://placehold.co/600x600',
+        'http://placehold.co/600x600',
+        'http://placehold.co/600x600',
+        'http://placehold.co/600x600',
+        'http://placehold.co/600x600',
+    ]
+
     onMount(() => {
-        console.log('onmount')
         if (document) {
             let html = document.getElementsByTagName('html');
             if (html) {
@@ -104,32 +112,50 @@
     <div id="wrapper_wrapper">
         <div id="wrapper">
             <div class="top-layer">
-                <div class="text">Hello</div>
+                <div class="text bg-red-100">Hello, I'm Lian.</div>
             </div>
             <div class="top-layer">
-                <div class="text">I'm Lian.</div>
+                <div class="text bg-blue-100">I'm a Web Dev.</div>
             </div>
             <div class="top-layer">
-                <div class="text">I&nbsp;</div>
-                <div class="view">
+                <div class="text">
+                    <span class='bg-blue-100'>
+                        I&nbsp;
+                    </span>
+                </div>
+                <div class="view bg-green-100">
                     <div class="parallax">
                         <div class="parallax1">
                             <div class="verb">
-                                do&nbsp;
+                                <span>
+                                    do&nbsp;
+                                </span>
                             </div>
                             <div class="noun">
-                                Frontend<br>
-                                    Backend<br>
+                                <span class="bg-yellow-100">
+                                    Frontend.
+                                </span>
+                                <span class="bg-red-100">
+                                    Backend.
+                                </span>
                             </div>
                         </div>
                         <div class="parallax2">
                             <div class="verb">
-                                use&nbsp;
+                                <span class="bg-orange-100">
+                                    use&nbsp;
+                                </span>
                             </div>
                             <div class="noun">
-                                Svelte<br>
-                                    Django<br>
-                                    NodeJS<br>
+                                <span class="bg-blue-100">
+                                    Svelte.
+                                </span>
+                                <span class="bg-yellow-100">
+                                    Django.
+                                </span>
+                                <span class="bg-red-100">
+                                    NodeJS.
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -146,28 +172,59 @@
         <code>{code}</code>
     </div>
 
+    <div style="padding-top: 0vh; position: absolute; top: 400vh; width: 100vw;" class="flyby text-center">
+        CONTACT
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
+        PROJECTS
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
+        LINKS
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
+        THANKS
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
+        FOR
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 650vh; width: 100vw;" class="flyby text-center">
+        STOPPING
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
+        BY!
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
+        GOOD
+    </div>
+    <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
+        BYE
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
+        ..
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
+        ...
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 950vh; width: 100vw;" class="flyby text-center">
+        END.
+    </div>
+
     <div id="picture_wrapper">
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
-        <div class="picture">
-            <img src="http://placehold.co/600x400" alt="" class='w-full'>
-        </div>
+        {#each imgs as img}
+            <div class="picture">
+                <div class="img" style="background-image: url({img})"></div>
+            </div>
+        {/each}
     </div>
 
     <div id="percent">
@@ -186,13 +243,14 @@
 <style>
     :global(:root) {
         --fontsize: 50px;
-        --lineheight: 1.15;
-        --headerpadding: 5vh;
-        --picturesize: calc(100vh - (var(--headerpadding) * 2 + var(--fontsize)));
+        --lineheight: 1.5;
+        --headerpadding: 2vh;
+        --headerpadding-x: 2vh;
+        --picturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
     }
 
     :global(:root *) {
-        animation-timing-function: linear;
+        animation-timing-function: cubic-bezier();
         /* Pause the animation */
         animation-play-state: paused;
         /* Bind the animation to scroll */
@@ -205,10 +263,10 @@
 
     @keyframes wrapper_wrapper {
     from, 35% {
-    transform: translateY(0); 
+        transform: translateY(0); 
     }
     40%, to {
-    transform: translateY(var(--headerpadding) * 2 + var(--fontsize)); 
+        transform: translateY(var(--headerpadding) * 2 + var(--fontsize)); 
     }
     }
 
@@ -257,7 +315,7 @@
 
     #wrapper_wrapper {
         animation-name: wrapper_wrapper;
-        padding: var(--headerpadding);
+        padding: var(--headerpadding) var(--headerpadding-x);
         position: fixed;
         top: max(calc(30vh - (var(--scroll) * 1px)), 0px);
         background: transparent;
@@ -269,23 +327,24 @@
         width: 100vw;
         display:block;
         overflow-y: hidden;
+        /*height: calc(var(--lineheight) * var(--fontsize));*/
         height: calc(var(--lineheight) * var(--fontsize));
     }
     .text, .view {
         font-size: var(--fontsize);
         display: block;
-        height: calc(var(--lineheight) * 1em);
+        height: calc(var(--lineheight) * var(--fontsize));
         line-height: calc(var(--fontsize) * var(--lineheight));
         overflow: hidden;
     }
     .top-layer code, .top-layer pre {
         font-family: 'Courier New', Courier, monospace;
-        color: #ccc;
+        color: #eee;
     }
     .top-layer {
         display: flex;
         width: 100%;
-        height: var(--fontsize);
+        height: auto;
     }
     .parallax {
         display: flex;
@@ -296,6 +355,11 @@
         display: flex;
     }
     .noun, .verb {
+        display: block;
+    }
+    .text span,
+    .noun span,
+    .verb span{
         display: block;
     }
     #percent {
@@ -341,16 +405,29 @@
     #picture_wrapper {
         z-index: 30;
         height: var(--picturesize);
-        width: 100%;
+        width: 100vw;
+        box-sizing: border-box;
         overflow: hidden;
         z-index: 9;
         position: fixed;
-        top: max(calc(60vh - (var(--scroll) * 1px)), calc(2 * var(--headerpadding) + var(--fontsize)));
+        top: max(calc(60vh - (var(--scroll) * 1px)),
+            calc(2 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight))));
     }
     .picture {
+        overflow: hidden;
         height: var(--picturesize);
+        width: 100%;
         font-size: var(--fontsize);
         background: transparent;
-        padding: var(--headerpadding);
+    }
+    .picture .img {
+        width: 100%;
+        height: var(--picturesize);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .flyby {
+        font-size: 30px;
     }
 </style>
