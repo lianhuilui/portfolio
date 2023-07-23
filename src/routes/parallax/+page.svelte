@@ -16,12 +16,13 @@
     let animating = false; 
 
     let imgs = [
-        'http://placehold.co/600x600',
-        'http://placehold.co/600x600',
-        'http://placehold.co/600x600',
-        'http://placehold.co/600x600',
-        'http://placehold.co/600x600',
-        'http://placehold.co/600x600',
+        '/head.png',
+        '/src/assets/hrcpoints.jpeg',
+        'http://placehold.co/1000x1000',
+        'http://placehold.co/1000x1000',
+        'http://placehold.co/1000x1000',
+        'http://placehold.co/1000x1000',
+        'http://placehold.co/1000x1000',
     ]
 
     onMount(() => {
@@ -112,50 +113,73 @@
     <div id="wrapper_wrapper">
         <div id="wrapper">
             <div class="top-layer">
-                <div class="text bg-red-100">Hello, I'm Lian.</div>
+                <div class="text">
+                    <span class="hello">
+                        Hello.
+                    </span>
+                    <span class="lian bg-white">
+                        I'm Lian.
+                    </span>
+                </div>
             </div>
             <div class="top-layer">
-                <div class="text bg-blue-100">I'm a Web Dev.</div>
+                <div class="text">I do
+                    <p class="inline web">
+                        web
+                    </p>
+                    development
+                </div>
             </div>
             <div class="top-layer">
                 <div class="text">
-                    <span class='bg-blue-100'>
+                    <span class=''>
                         I&nbsp;
                     </span>
                 </div>
-                <div class="view bg-green-100">
+                <div class="view">
                     <div class="parallax">
                         <div class="parallax1">
                             <div class="verb">
                                 <span>
-                                    do&nbsp;
+                                    write&nbsp;
                                 </span>
                             </div>
                             <div class="noun">
-                                <span class="bg-yellow-100">
-                                    Frontend.
-                                </span>
-                                <span class="bg-red-100">
-                                    Backend.
-                                </span>
+                                <div>
+                                    <span class="bg-yellow-200">
+                                        frontend
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="bg-green-200">
+                                        backend
+                                    </span>
+                                </div>
                             </div>
+                            &nbsp;code.
                         </div>
                         <div class="parallax2">
                             <div class="verb">
-                                <span class="bg-orange-100">
+                                <span class="">
                                     use&nbsp;
                                 </span>
                             </div>
                             <div class="noun">
-                                <span class="bg-blue-100">
-                                    Svelte.
-                                </span>
-                                <span class="bg-yellow-100">
-                                    Django.
-                                </span>
-                                <span class="bg-red-100">
-                                    NodeJS.
-                                </span>
+                                <div>
+                                    <span class="">
+                                        Svelte<span class="kit">Kit</span>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="">
+                                        Django.
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="">
+                                        nodeJS.
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,50 +196,55 @@
         <code>{code}</code>
     </div>
 
+    <div style="padding-top: 0vh; position: absolute; top: 350vh; width: 100vw;" class="flyby text-center">
+        Projects
+    </div>
+
     <div style="padding-top: 0vh; position: absolute; top: 400vh; width: 100vw;" class="flyby text-center">
-        PROJECTS
+        Showcase
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
-        BLOG
+        1
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
-        CONTACT ME
+        2
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
+        3
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
-        THANKS
+        4
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 650vh; width: 100vw;" class="flyby text-center">
-        FOR
+        5
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-        STOPPING
+        6
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
-        BY
-    </div>
-    <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
-        .
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
         ..
     </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
+    <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
         ...
     </div>
 
+    <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
+        ....
+    </div>
+
+    <div style="padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
+        Blog
+    </div>
+
     <div style="padding-top: 0vh; position: absolute; top: 950vh; width: 100vw;" class="flyby text-center">
-        THE END
+        Contact
     </div>
 
     <div id="picture_wrapper">
@@ -229,7 +258,7 @@
     <div id="percent">
     </div>
 
-    <div style="position: fixed; bottom: 0; right: 0; display: fixed; z-index: 30; text-align: right;">
+    <div style="position: fixed; bottom: 0; right: 0; display: none; z-index: 30; text-align: right;">
         scroll       {scroll}px<br>
             height       {height}px<br>
             percent       {parseInt(percent * 100)}vh<br>
@@ -241,7 +270,7 @@
 
 <style>
     :global(:root) {
-        --fontsize: 50px;
+        --fontsize: 2rem;
         --lineheight: 1.5;
         --headerpadding: 2vh;
         --headerpadding-x: 2vh;
@@ -316,7 +345,7 @@
         animation-name: wrapper_wrapper;
         padding: var(--headerpadding) var(--headerpadding-x);
         position: fixed;
-        top: max(calc(30vh - (var(--scroll) * 1px)), 0px);
+        top: max(calc(35vh - (var(--scroll) * 1px)), 0px);
         background: transparent;
         z-index: 10;
     }
@@ -336,7 +365,7 @@
         line-height: calc(var(--fontsize) * var(--lineheight));
         overflow: hidden;
     }
-    .top-layer code, .top-layer pre {
+    .top-layer code {
         font-family: 'Courier New', Courier, monospace;
         color: #eee;
     }
@@ -354,12 +383,13 @@
         display: flex;
     }
     .noun, .verb {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
     .text span,
     .noun span,
     .verb span{
-        display: block;
+        display: inline;
     }
     #percent {
         top: 0;
@@ -374,12 +404,9 @@
     }
     #anitext {
         width: 100vw;
-        font-family: monospace;
         background: transparent;
         z-index: 10;
         font-size: var(--fontsize);
-        position:fixed;
-        top: 10px;
     }
 
     /* PICTURE */
@@ -420,13 +447,74 @@
         background: transparent;
     }
     .picture .img {
+        aspect-ratio: 1;
         width: 100%;
         height: var(--picturesize);
-        background-size: cover;
-        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top center;
     }
 
+    /* web */
+    @keyframes web {
+    from, 8% { color: black; }
+    9%, to { color: orange; }
+    }
+
+    .web {
+        animation-name: web;
+    }
+
+    /* kit */
+    @keyframes kit {
+    from, 23% { width: 0px}
+    24%, to { width: 1.5em; }
+    }
+
+    .kit {
+        color: orange;
+        animation-name: kit;
+        display: inline-block!important;
+        height: calc(var(--lineheight));
+        vertical-align: top;
+        overflow: hidden;
+    }
+
+    /* hello */
+    @keyframes hello {
+    from, 1% { opacity: 0}
+    2%, to { opacity: 1.0}
+    }
+    .hello {
+        animation-name: hello;
+    }
+
+    /* lian */
+    @keyframes lian {
+    from, 2% { opacity: 0}
+    3%, to { opacity: 1.0}
+    }
+    .lian {
+        animation-name: lian;
+    }
+
+    /* fly by texts */
     .flyby {
-        font-size: 10vw;
+        /*font-size: 10vw;*/
+        font-size: 5vh;
+    }
+
+    /* animation */
+    @keyframes flyby {
+    from, 30% {
+        transform: translateY(100vh)
+    }
+    to {
+        transform: translateY(0)
+    }
+    }
+    .flyby {
+        animation-name: flyby;
+        animation-timing-function: linear;
     }
 </style>
