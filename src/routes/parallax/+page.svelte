@@ -21,7 +21,6 @@
         'http://placehold.co/1000x1000',
         'http://placehold.co/1000x1000',
         'http://placehold.co/1000x1000',
-        'http://placehold.co/1000x1000',
     ]
 
     onMount(() => {
@@ -83,7 +82,6 @@
             })
 
             Promise.all([p0, p1, p2, p3, p4, p5]).then(() => {
-                console.log("stopped!")
                 animating = false;
             })
 
@@ -155,7 +153,7 @@
                                     </span>
                                 </div>
                             </div>
-                            &nbsp;code.
+                            &nbsp;code
                         </div>
                         <div class="parallax2">
                             <div class="verb">
@@ -166,17 +164,12 @@
                             <div class="noun">
                                 <div>
                                     <span class="">
-                                        Svelte<span class="kit">Kit.</span>
+                                        Svelte<span class="kit">Kit</span>
                                     </span>
                                 </div>
                                 <div>
                                     <span class="">
-                                        Django.
-                                    </span>
-                                </div>
-                                <div>
-                                    <span class="">
-                                        nodeJS.
+                                        node<span class="bg-yellow-400 text-white">&nbsp;JS&nbsp;</span>
                                     </span>
                                 </div>
                             </div>
@@ -196,27 +189,22 @@
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
-        ..
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
-        .
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
-        <a href="/my-work/">Projects</a>
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
-        4
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 650vh; width: 100vw;" class="flyby text-center">
-        5
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-        6
+        <a href="/my-work/">Projects</a>
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
@@ -249,14 +237,6 @@
     <div id="percent">
     </div>
 
-    <div style="position: fixed; bottom: 0; right: 0; display: none; z-index: 30; text-align: right;">
-        scroll       {scroll}px<br>
-            height       {height}px<br>
-            percent       {parseInt(percent * 100)}vh<br>
-            p       {parseInt(p * 100)}%<br>
-            h       {h}px<br>
-    </div>
-
 </div>
 
 <style lang="postcss">
@@ -266,7 +246,7 @@
         --headerpadding: 2vh;
         --headerpadding-x: 2vh;
         --oldpicturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
-        --picturesize: calc(100vh);
+        --picturesize: 100vh;
     }
 
     :global(:root *) {
@@ -284,38 +264,40 @@
     @keyframes top {
     from { transform: translateY(0); }
     10% { transform: translateY(0); }
-    15% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    20% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    40% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    45% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
+    20% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    30% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    65% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    70% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
     to { transform:  translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes parallax {
     from { transform: translateY(0); }
-    25% { transform: translateY(0); }
-    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    35% { transform: translateY(0); }
+    40% { transform: translateY(0); }
+    50% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun {
     from { transform: translateY(0); }
-    20% { transform: translateY(0); }
-    25% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    30% { transform: translateY(0); }
+    40% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    50% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    60% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun2 {
     from { transform: translateY(0); }
-    30% { transform: translateY(0); }
-    35% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    40% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    55% { transform: translateY(0); }
+    60% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    65% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     }
 
     /* animation */
+    #wrapper { animation-name: wrapper; }
     .top-layer { animation-name: top; }
     .parallax { animation-name: parallax; }
     .parallax1 .noun { animation-name: noun; }
@@ -341,6 +323,7 @@
         line-height: calc(var(--lineheight) * var(--fontsize));
         height: calc(var(--lineheight) * var(--fontsize));
         overflow-y: hidden;
+        background: white;
     }
     .top-layer {
         display: flex;
@@ -397,19 +380,32 @@
     /* animation */
     @keyframes picture {
     from { transform: translateY(calc(1 * var(--picturesize)))}
-    to { transform: translateY(calc(-7 * var(--picturesize)))}
+    10% { transform: translateY(calc(0 * var(--picturesize)))}
+    15% { transform: translateY(calc(0 * var(--picturesize)))}
+    25% { transform: translateY(calc(-1 * var(--picturesize)))}
+    30% { transform: translateY(calc(-1 * var(--picturesize)))}
+    35% { transform: translateY(calc(-2 * var(--picturesize)))}
+    40% { transform: translateY(calc(-2 * var(--picturesize)))}
+    45% { transform: translateY(calc(-3 * var(--picturesize)))}
+    55% { transform: translateY(calc(-3 * var(--picturesize)))}
+    60% { transform: translateY(calc(-4 * var(--picturesize)))}
+    65% { transform: translateY(calc(-4 * var(--picturesize)))}
+    70% { transform: translateY(calc(-5 * var(--picturesize)))}
+    to { transform: translateY(calc(-5 * var(--picturesize)))}
     }
     .picture {
         animation-name: picture;
-        animation-timing-function: linear;
+        /* animation-timing-function: linear; */
+        animation-timing-function: ease-in-out;
     }
 
     @keyframes picture_wrapper {
-        from, 58% { transform: translateY(0)}
-        63%, to { transform: translateY(-110vh)}
+        from, 70% { transform: translateY(0)}
+        73%, to { transform: translateY(-110vh)}
     }
     #picture_wrapper {
         animation-name: picture_wrapper;
+        animation-timing-function: ease-in;
     }
 
     /* styles */
@@ -440,7 +436,7 @@
         height: var(--picturesize);
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: top center;
+        background-position: center center;
     }
 
     /* web */
@@ -454,30 +450,30 @@
         animation-name: web;
     }
 
+    @keyframes wrapper {
+        from { opacity: 0; }
+        2% { opacity: 1; }
+        65% { opacity: 1; }
+        68% { opacity: 0; }
+        to { opacity: 0; }
+    }
+
     /* kit */
     @keyframes kit {
-    from, 29% { width: 0px}
-    30%, to { width: 1.4em; }
+    from, 48% { width: 0px}
+    50%, to { width: 1.25em; }
     }
 
     .kit {
         color: white;
         background: orange;
         animation-name: kit;
-        display: inline-block!important;
         height: calc(var(--lineheight));
         vertical-align: top;
         overflow: hidden;
     }
 
     /* hello */
-    @keyframes hello {
-    from, 1% { opacity: 0}
-    2%, to { opacity: 1.0}
-    }
-    .hello {
-        animation-name: hello;
-    }
 
     /* lian */
     @keyframes lian {
