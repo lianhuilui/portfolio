@@ -22,7 +22,6 @@
         'http://placehold.co/1000x1000',
         'http://placehold.co/1000x1000',
         'http://placehold.co/1000x1000',
-        'http://placehold.co/1000x1000',
     ]
 
     onMount(() => {
@@ -110,7 +109,7 @@
 
 <div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
-    <div id="wrapper_wrapper">
+    <div id="wwrapper">
         <div id="wrapper">
             <div class="top-layer">
                 <div class="text">
@@ -151,7 +150,7 @@
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="bg-green-200">
+                                    <span class="bg-blue-200">
                                         backend
                                     </span>
                                 </div>
@@ -167,7 +166,7 @@
                             <div class="noun">
                                 <div>
                                     <span class="">
-                                        Svelte<span class="kit">Kit</span>
+                                        Svelte<span class="kit">Kit.</span>
                                     </span>
                                 </div>
                                 <div>
@@ -196,24 +195,16 @@
         <code>{code}</code>
     </div>
 
-    <div style="padding-top: 0vh; position: absolute; top: 350vh; width: 100vw;" class="flyby text-center">
-        Projects
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 400vh; width: 100vw;" class="flyby text-center">
-        Showcase
-    </div>
-
     <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
-        1
+        ..
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
-        2
+        .
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
-        3
+        <a href="/my-work/">Projects</a>
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
@@ -268,13 +259,14 @@
 
 </div>
 
-<style>
+<style lang="postcss">
     :global(:root) {
-        --fontsize: 2rem;
+        --fontsize: 40px;
         --lineheight: 1.5;
         --headerpadding: 2vh;
         --headerpadding-x: 2vh;
-        --picturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
+        --oldpicturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
+        --picturesize: calc(100vh);
     }
 
     :global(:root *) {
@@ -289,46 +281,37 @@
         animation-duration: 1s;
     }
 
-    @keyframes wrapper_wrapper {
-    from, 35% {
-        transform: translateY(0); 
-    }
-    40%, to {
-        transform: translateY(var(--headerpadding) * 2 + var(--fontsize)); 
-    }
-    }
-
     @keyframes top {
     from { transform: translateY(0); }
-    5% { transform: translateY(0); }
-    10% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    15% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    40% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
-    to { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
+    10% { transform: translateY(0); }
+    15% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    20% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    40% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    45% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
+    to { transform:  translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes parallax {
     from { transform: translateY(0); }
-    20% { transform: translateY(0); }
-    25% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    25% { transform: translateY(0); }
+    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun {
     from { transform: translateY(0); }
-    15% { transform: translateY(0); }
-    20% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    20% { transform: translateY(0); }
     25% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    30% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     }
 
     @keyframes noun2 {
     from { transform: translateY(0); }
-    25% { transform: translateY(0); }
-    30% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    35% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
+    30% { transform: translateY(0); }
+    35% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    40% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
     }
 
@@ -339,40 +322,41 @@
     .parallax2 .noun { animation-name: noun2; }
 
     /* styles */
-    /* 346442 */
 
-    #wrapper_wrapper {
-        animation-name: wrapper_wrapper;
+    #wwrapper {
+        animation-name: wwrapper;
+        white-space: nowrap;
         padding: var(--headerpadding) var(--headerpadding-x);
-        position: fixed;
-        top: max(calc(35vh - (var(--scroll) * 1px)), 0px);
         background: transparent;
         z-index: 10;
+        position: fixed;
+        width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
     #wrapper {
         position: relative;
-        top: 50%;
-        width: 100vw;
         display:block;
-        overflow-y: hidden;
-        /*height: calc(var(--lineheight) * var(--fontsize));*/
+        line-height: calc(var(--lineheight) * var(--fontsize));
         height: calc(var(--lineheight) * var(--fontsize));
+        overflow-y: hidden;
+    }
+    .top-layer {
+        display: flex;
+        justify-content: center;
     }
     .text, .view {
         font-size: var(--fontsize);
         display: block;
-        height: calc(var(--lineheight) * var(--fontsize));
-        line-height: calc(var(--fontsize) * var(--lineheight));
+        line-height: calc(var(--lineheight) * var (--fontsize));
         overflow: hidden;
     }
     .top-layer code {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: monospace;
+        font-size: 1.3em;
         color: #eee;
-    }
-    .top-layer {
-        display: flex;
-        width: 100%;
-        height: auto;
+        user-select: none;
     }
     .parallax {
         display: flex;
@@ -412,32 +396,36 @@
     /* PICTURE */
     /* animation */
     @keyframes picture {
-    from { transform: translateY(0)}
-    5% { transform: translateY(0)}
-    10% { transform: translateY(calc(-1 * var(--picturesize)))}
-    15% { transform: translateY(calc(-2 * var(--picturesize)))}
-    20% { transform: translateY(calc(-3 * var(--picturesize)))}
-    25% { transform: translateY(calc(-4 * var(--picturesize)))}
-    30% { transform: translateY(calc(-5 * var(--picturesize)))}
-    35% { transform: translateY(calc(-6 * var(--picturesize)))}
-    40% { transform: translateY(calc(-7 * var(--picturesize)))}
+    from { transform: translateY(calc(1 * var(--picturesize)))}
     to { transform: translateY(calc(-7 * var(--picturesize)))}
     }
     .picture {
         animation-name: picture;
         animation-timing-function: linear;
     }
+
+    @keyframes picture_wrapper {
+        from, 58% { transform: translateY(0)}
+        63%, to { transform: translateY(-110vh)}
+    }
+    #picture_wrapper {
+        animation-name: picture_wrapper;
+    }
+
     /* styles */
     #picture_wrapper {
-        z-index: 30;
         height: var(--picturesize);
         width: 100vw;
         box-sizing: border-box;
         overflow: hidden;
         z-index: 9;
         position: fixed;
-        top: max(calc(60vh - (var(--scroll) * 1px)),
-            calc(2 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight))));
+        /* top: max(
+            calc(50vh - (var(--scroll) * 1px)),
+            0vh
+            calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
+        );*/
+        top: 0vh;
     }
     .picture {
         overflow: hidden;
@@ -457,22 +445,24 @@
 
     /* web */
     @keyframes web {
-    from, 8% { color: black; }
-    9%, to { color: orange; }
+    from, 8% { @apply text-black; }
+    9%, to { @apply text-orange-400 bg-white; }
     }
 
     .web {
+        color: white;
         animation-name: web;
     }
 
     /* kit */
     @keyframes kit {
-    from, 23% { width: 0px}
-    24%, to { width: 1.5em; }
+    from, 29% { width: 0px}
+    30%, to { width: 1.4em; }
     }
 
     .kit {
-        color: orange;
+        color: white;
+        background: orange;
         animation-name: kit;
         display: inline-block!important;
         height: calc(var(--lineheight));
@@ -491,8 +481,8 @@
 
     /* lian */
     @keyframes lian {
-    from, 2% { opacity: 0}
-    3%, to { opacity: 1.0}
+    from, 8% { opacity: 0}
+    10%, to { opacity: 1.0}
     }
     .lian {
         animation-name: lian;
@@ -500,7 +490,6 @@
 
     /* fly by texts */
     .flyby {
-        /*font-size: 10vw;*/
         font-size: 5vh;
     }
 
