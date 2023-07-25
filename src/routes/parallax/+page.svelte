@@ -105,7 +105,7 @@
     on:scroll={scrolling}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
     <div id="wwrapper">
         <div id="wrapper">
@@ -164,7 +164,11 @@
                             <div class="noun">
                                 <div>
                                     <span class="">
-                                        Svelte<span class="kit">Kit</span>
+                                        Svelte<span class="kit">
+                                            <span class="kit-inner">
+Kit
+                                            </span>
+                                        </span>
                                     </span>
                                 </div>
                                 <div>
@@ -184,8 +188,10 @@
         {anitext}
     </div>
 
-    <div class="top-layer">
-        <code>{code}</code>
+    <div class="code-wrapper">
+        <div class="code">
+            <code>{code}</code>
+        </div>
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
@@ -208,22 +214,19 @@
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
-        ..
     </div>
+
     <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
-        ...
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
-        ....
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
-        Blog
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 950vh; width: 100vw;" class="flyby text-center">
-        Contact
+
     </div>
 
     <div id="picture_wrapper">
@@ -235,6 +238,55 @@
     </div>
 
     <div id="percent">
+    </div>
+
+    <style>
+        #tags {
+            margin-top: 20vh;
+            animation-name: tags;
+            text-align: center;
+        }
+        @keyframes tags {
+            from, 80% { top: 100vh;}
+            to, 88% { top: 0vh;}
+        }
+
+        .tag {
+            animation-name: tag;
+            animation-timing-function: ease-in;
+
+            display: inline-block;
+            padding: 4px;
+            margin-bottom: 4px;
+            border-radius: 10px;
+            font-size: 30px;
+
+            background:transparent;
+        }
+        @keyframes tag {
+        from, 75%{ transform: translateY(50vh) scale(0.01)}
+        85%, to { transform: translateY(0vh) scale(1)}
+        }
+
+    </style>
+
+    <div id="tags" style="position: fixed; z-index: 100; height: 100vh; width: 100vw;">
+        <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
+        <div class="tag" style="--percent-delay: 0.025">Django</div>
+        <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
+        <div class="tag" style="--percent-delay: 0.06">Express</div>
+        <div class="tag" style="--percent-delay: 0.07">Firebase</div>
+        <div class="tag" style="--percent-delay: 0.09">Astro</div>
+        <div class="tag" style="--percent-delay: 0.08">Joomla</div>
+        <div class="tag" style="--percent-delay: 0.03">Shopify</div>
+        <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
+        <div class="tag" style="--percent-delay: 0.028">Javascript</div>
+        <div class="tag" style="--percent-delay: 0.015">Typescript</div>
+        <div class="tag" style="--percent-delay: 0.02">Google Cloud Platform</div>
+        <div class="tag" style="--percent-delay: 0.075">CSS</div>
+        <div class="tag" style="--percent-delay: 0.04">.NET</div>
+        <div class="tag" style="--percent-delay: 0.06">Firebase</div>
+        <div class="tag" style="--percent-delay: 0.068">jQuery</div>
     </div>
 
 </div>
@@ -254,7 +306,7 @@
         /* Pause the animation */
         animation-play-state: paused;
         /* Bind the animation to scroll */
-        animation-delay: calc(var(--percent) * -1s);
+        animation-delay: calc(calc(var(--percent) * -1s) + calc(var(--percent-delay) * 1s));
         /* These last 2 properites clean up overshoot weirdness */
         animation-iteration-count: 1;
         animation-fill-mode: both;
@@ -335,9 +387,10 @@
         line-height: calc(var(--lineheight) * var (--fontsize));
         overflow: hidden;
     }
-    .top-layer code {
-        font-family: monospace;
-        font-size: 1.3em;
+    .code-wrapper code {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 11px;
+        line-height: 0px!important;
         color: #eee;
         user-select: none;
     }
@@ -441,8 +494,8 @@
 
     /* web */
     @keyframes web {
-    from, 8% { @apply text-black; }
-    9%, to { @apply text-orange-400 bg-white; }
+    from, 18% { @apply text-black; }
+    19%, to { @apply text-orange-400; }
     }
 
     .web {
@@ -460,17 +513,21 @@
 
     /* kit */
     @keyframes kit {
-    from, 48% { width: 0px}
-    50%, to { width: 1.25em; }
+    from, 45% { width: 0px; }
+    48%, to { width: 1.25em; }
     }
 
     .kit {
         color: white;
-        background: orange;
+        display: inline-block!important;
         animation-name: kit;
         height: calc(var(--lineheight));
         vertical-align: top;
         overflow: hidden;
+    }
+
+    .kit-inner {
+        background: orange;
     }
 
     /* hello */
