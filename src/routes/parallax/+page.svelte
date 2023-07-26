@@ -1,5 +1,6 @@
 <script>
     import {onMount} from 'svelte'
+    import 'iconify-icon'
 
     let scroll = 0;
     let height = 0;
@@ -188,9 +189,16 @@ Kit
         {anitext}
     </div>
 
+    <div id="scroll-helper" class="hide-after-scroll">
+        <span>Scroll Down
+            <br>
+            <iconify-icon icon="material-symbols:arrow-circle-down" class="text-3xl align-middle bounce"/>
+        </span>
+    </div>
+
     <div class="code-wrapper">
         <div class="code">
-            <code>{code}</code>
+            <code>{code}{code}</code>
         </div>
     </div>
 
@@ -222,10 +230,23 @@ Kit
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
     </div>
 
-    <div style="padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 950vh; width: 100vw;" class="flyby text-center">
+    <div style="z-index: 1000; padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
+        <div style="background: white; top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
+            <div class="flex flex-col h-full justify-around">
+                <span style="">
+                    <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
+                    <span class="align-middle">e-mail me</span>
+                </span>
+                <span style="">
+                    <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
+                    <span class="align-middle">e-mail me</span>
+                </span>
+                <span style="">
+                    <iconify-icon icon="fa-brands:linkedin" class="align-middle"></iconify-icon>
+                    <span class="align-middle">get linked</span>
+                </span>
+            </div>
+        </div>
 
     </div>
 
@@ -240,6 +261,7 @@ Kit
     <div id="percent">
     </div>
 
+
     <style>
         #tags {
             margin-top: 20vh;
@@ -253,8 +275,7 @@ Kit
 
         .tag {
             animation-name: tag;
-            animation-timing-function: ease-in;
-
+            animation-timing-function: ease-out;
             display: inline-block;
             padding: 4px;
             margin-bottom: 4px;
@@ -276,14 +297,17 @@ Kit
         <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
         <div class="tag" style="--percent-delay: 0.06">Express</div>
         <div class="tag" style="--percent-delay: 0.07">Firebase</div>
-        <div class="tag" style="--percent-delay: 0.09">Astro</div>
+        <div class="tag" style="--percent-delay: 0.019">Astro</div>
         <div class="tag" style="--percent-delay: 0.08">Joomla</div>
         <div class="tag" style="--percent-delay: 0.03">Shopify</div>
         <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
         <div class="tag" style="--percent-delay: 0.028">Javascript</div>
         <div class="tag" style="--percent-delay: 0.015">Typescript</div>
+        <div class="tag" style="--percent-delay: 0.022">SQL</div>
         <div class="tag" style="--percent-delay: 0.02">Google Cloud Platform</div>
+        <div class="tag" style="--percent-delay: 0.024">Flutter</div>
         <div class="tag" style="--percent-delay: 0.075">CSS</div>
+        <div class="tag" style="--percent-delay: 0.038">C#</div>
         <div class="tag" style="--percent-delay: 0.04">.NET</div>
         <div class="tag" style="--percent-delay: 0.06">Firebase</div>
         <div class="tag" style="--percent-delay: 0.068">jQuery</div>
@@ -559,4 +583,38 @@ Kit
         animation-name: flyby;
         animation-timing-function: linear;
     }
+
+    #scroll-helper {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #scroll-helper span {
+        position: fixed;
+        bottom: 4vh;
+        width: 100vw;
+        text-align: center;
+    }
+
+    .hide-after-scroll {
+        animation-name: hide-after-scroll;
+    }
+    @keyframes hide-after-scroll {
+        from, 3% { opacity: 1; }
+        5%, to { opacity: 0; }
+    }
+    .bounce {
+        animation-name: bounce;
+        animation-play-state: running;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+    }
+    @keyframes bounce {
+       0%,  100% {transform: translateY(0);} 
+       50% {transform: translateY(-15px);} 
+    } 
+
 </style>
