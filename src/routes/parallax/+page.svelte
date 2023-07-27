@@ -108,30 +108,42 @@
 
 <div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
+    <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
+        <a href="/">
+            Home
+        </a>
+        <a href="/my-work">
+            Projects
+        </a>
+        <a href="/contact">
+            Contact
+        </a>
+    </nav>
+
     <div id="wwrapper">
         <div id="wrapper">
             <div class="top-layer">
                 <div class="text">
                     <span class="hello">
-                        Hello.
+                        hello.
                     </span>
                     <span class="lian bg-white">
-                        I'm Lian.
+                        i'm hein zaw oo.
                     </span>
                 </div>
             </div>
             <div class="top-layer">
-                <div class="text">I do
+                <div class="text">i
                     <p class="inline web">
-                        web
+                        <iconify-icon icon="fa-solid:heart" class="text-2xl align-middle" aria-valuetext="love"/>
                     </p>
-                    development
+                    to code
                 </div>
             </div>
             <div class="top-layer">
                 <div class="text">
                     <span class=''>
-                        I&nbsp;
+                        i&nbsp;
                     </span>
                 </div>
                 <div class="view">
@@ -145,37 +157,33 @@
                             <div class="noun">
                                 <div>
                                     <span class="bg-yellow-200">
-                                        frontend
-                                    </span>
+                                        reactive
+                                    </span>&nbsp;UIs
                                 </div>
                                 <div>
                                     <span class="bg-blue-200">
-                                        backend
-                                    </span>
+                                        performant
+                                    </span>&nbsp;APIs
                                 </div>
                             </div>
-                            &nbsp;code
+                            &nbsp;
                         </div>
                         <div class="parallax2">
                             <div class="verb">
                                 <span class="">
-                                    use&nbsp;
+                                    am&nbsp;
                                 </span>
                             </div>
                             <div class="noun">
                                 <div>
                                     <span class="">
-                                        Svelte<span class="kit">
-                                            <span class="kit-inner">
-Kit
-                                            </span>
-                                        </span>
+                                        a<span class="kit">
+                                            &nbsp;<span class="kit-inner">
+                                                fullstack</span></span>&nbsp;webdev
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="">
-                                        node<span class="bg-yellow-400 text-white">&nbsp;JS&nbsp;</span>
-                                    </span>
+                                    <span>serious!!!!!</span>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +226,7 @@ Kit
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-        <a href="/my-work/">Projects</a>
+        Skill Bubble:
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
@@ -230,22 +238,40 @@ Kit
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
     </div>
 
-    <div style="z-index: 1000; padding-top: 0vh; position: absolute; top: 900vh; width: 100vw;" class="flyby text-center">
+    <div style="z-index: 1000; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
         <div style="background: white; top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
-            <div class="flex flex-col h-full justify-around">
-                <span style="">
-                    <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
-                    <span class="align-middle">e-mail me</span>
-                </span>
-                <span style="">
-                    <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
-                    <span class="align-middle">e-mail me</span>
-                </span>
-                <span style="">
-                    <iconify-icon icon="fa-brands:linkedin" class="align-middle"></iconify-icon>
-                    <span class="align-middle">get linked</span>
-                </span>
+            <div class="flex flex-col h-full">
+
+                <div class="text-2xl pt-8 pb-4">
+                    Are you looking to hire?
+                </div>
+
+                <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
+                    <span style="">
+                        <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
+                        <span class="align-middle">e-mail me</span>
+                    </span>
+                    <span style="">
+                        <iconify-icon icon="mdi:document" class="align-middle"></iconify-icon>
+                        <span class="align-middle">get resume</span>
+                    </span>
+                    <span style="">
+                        <iconify-icon icon="fa-brands:linkedin" class="align-middle"></iconify-icon>
+                        <span class="align-middle">linkedin</span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+                    
+                <div class="text-sm pb-4">
+                    <button on:click={() => {scroll = 0}}>
+                        <iconify-icon icon="material-symbols:arrow-circle-up" class="text-3xl align-middle"></iconify-icon>
+                        <br>
+                            back to top
+                    </button>
+                </div>
             </div>
+
         </div>
 
     </div>
@@ -258,42 +284,17 @@ Kit
         {/each}
     </div>
 
-    <div id="percent">
+    <div id="percent-bar">
     </div>
 
-
-    <style>
-        #tags {
-            margin-top: 20vh;
-            animation-name: tags;
-            text-align: center;
-        }
-        @keyframes tags {
-            from, 80% { top: 100vh;}
-            to, 88% { top: 0vh;}
-        }
-
-        .tag {
-            animation-name: tag;
-            animation-timing-function: ease-out;
-            display: inline-block;
-            padding: 4px;
-            margin-bottom: 4px;
-            border-radius: 10px;
-            font-size: 30px;
-
-            background:transparent;
-        }
-        @keyframes tag {
-        from, 75%{ transform: translateY(50vh) scale(0.01)}
-        85%, to { transform: translateY(0vh) scale(1)}
-        }
-
-    </style>
+    <style></style>
 
     <div id="tags" style="position: fixed; z-index: 100; height: 100vh; width: 100vw;">
         <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
+        <div class="tag" style="--percent-delay: 0.02">Python</div>
         <div class="tag" style="--percent-delay: 0.025">Django</div>
+        <div class="tag" style="--percent-delay: 0.028">Javascript</div>
+        <div class="tag" style="--percent-delay: 0.015">Typescript</div>
         <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
         <div class="tag" style="--percent-delay: 0.06">Express</div>
         <div class="tag" style="--percent-delay: 0.07">Firebase</div>
@@ -301,16 +302,17 @@ Kit
         <div class="tag" style="--percent-delay: 0.08">Joomla</div>
         <div class="tag" style="--percent-delay: 0.03">Shopify</div>
         <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
-        <div class="tag" style="--percent-delay: 0.028">Javascript</div>
-        <div class="tag" style="--percent-delay: 0.015">Typescript</div>
         <div class="tag" style="--percent-delay: 0.022">SQL</div>
-        <div class="tag" style="--percent-delay: 0.02">Google Cloud Platform</div>
+        <div class="tag" style="--percent-delay: 0.06">Google Cloud Platform</div>
         <div class="tag" style="--percent-delay: 0.024">Flutter</div>
         <div class="tag" style="--percent-delay: 0.075">CSS</div>
+        <div class="tag" style="--percent-delay: 0.07">HTML</div>
         <div class="tag" style="--percent-delay: 0.038">C#</div>
         <div class="tag" style="--percent-delay: 0.04">.NET</div>
         <div class="tag" style="--percent-delay: 0.06">Firebase</div>
         <div class="tag" style="--percent-delay: 0.068">jQuery</div>
+        <div class="tag" style="--percent-delay: 0.05">Git</div>
+        <div class="tag" style="--percent-delay: 0.04">Linux</div>
     </div>
 
 </div>
@@ -365,11 +367,8 @@ Kit
     }
 
     @keyframes noun2 {
-    from { transform: translateY(0); }
-    55% { transform: translateY(0); }
-    60% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    65% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
+    from, 57% { transform: translateY(0); }
+    62%, to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
     }
 
     /* animation */
@@ -394,6 +393,8 @@ Kit
         transform: translateY(-50%) translateX(-50%);
     }
     #wrapper {
+        padding-left: 4px;
+        padding-right: 4px;
         position: relative;
         display:block;
         line-height: calc(var(--lineheight) * var(--fontsize));
@@ -442,6 +443,15 @@ Kit
         text-align: center;
         position: fixed;
     }
+    #percent-bar {
+        top: 0;
+        left: 0;
+        width: calc(var(--percent) * 100%);
+        z-index: 1000;
+        background: orange;
+        height: 4px;
+        position: fixed;
+    }
     #percent:after {
         counter-reset: per calc(var(--percent) * 100);
         content: counter(per) '%'
@@ -477,8 +487,8 @@ Kit
     }
 
     @keyframes picture_wrapper {
-        from, 70% { transform: translateY(0)}
-        73%, to { transform: translateY(-110vh)}
+    from, 70% { transform: translateY(0)}
+    73%, to { transform: translateY(-110vh)}
     }
     #picture_wrapper {
         animation-name: picture_wrapper;
@@ -494,10 +504,10 @@ Kit
         z-index: 9;
         position: fixed;
         /* top: max(
-            calc(50vh - (var(--scroll) * 1px)),
-            0vh
-            calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
-        );*/
+calc(50vh - (var(--scroll) * 1px)),
+0vh
+calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
+);*/
         top: 0vh;
     }
     .picture {
@@ -519,7 +529,7 @@ Kit
     /* web */
     @keyframes web {
     from, 18% { @apply text-black; }
-    19%, to { @apply text-orange-400; }
+    19%, to { @apply text-red-500; }
     }
 
     .web {
@@ -528,17 +538,17 @@ Kit
     }
 
     @keyframes wrapper {
-        from { opacity: 0; }
-        2% { opacity: 1; }
-        65% { opacity: 1; }
-        68% { opacity: 0; }
-        to { opacity: 0; }
+    from { opacity: 0; }
+    2% { opacity: 1; }
+    65% { opacity: 1; }
+    68% { opacity: 0; }
+    to { opacity: 0; }
     }
 
     /* kit */
     @keyframes kit {
-    from, 45% { width: 0px; }
-    48%, to { width: 1.25em; }
+    from, 50% { width: 0px; }
+    52%, to { width: 3.8em }
     }
 
     .kit {
@@ -558,8 +568,8 @@ Kit
 
     /* lian */
     @keyframes lian {
-    from, 8% { opacity: 0}
-    10%, to { opacity: 1.0}
+    from, 5% { opacity: 0}
+    7%, to { opacity: 1.0}
     }
     .lian {
         animation-name: lian;
@@ -602,8 +612,8 @@ Kit
         animation-name: hide-after-scroll;
     }
     @keyframes hide-after-scroll {
-        from, 3% { opacity: 1; }
-        5%, to { opacity: 0; }
+    from, 3% { opacity: 1; }
+    5%, to { opacity: 0; }
     }
     .bounce {
         animation-name: bounce;
@@ -613,8 +623,43 @@ Kit
         animation-timing-function: ease-in-out;
     }
     @keyframes bounce {
-       0%,  100% {transform: translateY(0);} 
-       50% {transform: translateY(-15px);} 
+    0%,  100% {transform: translateY(0);} 
+    50% {transform: translateY(-15px);} 
     } 
 
+    nav { 
+        background: white;
+        z-index: 1000;
+        transform: translateY(calc(var(--percent) * -1000%));
+    }
+    nav a {
+        @apply p-4;
+    }
+    #tags {
+        margin-top: 20vh;
+        animation-name: tags;
+        text-align: center;
+    }
+    @keyframes tags {
+    from, 75% { top: 100vh }
+    to, 82% { top: 0vh }
+    }
+
+    .tag {
+        animation-name: tag;
+        animation-timing-function: ease-out;
+        display: inline-block;
+        padding: 4px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+        font-size: 30px;
+
+        background:transparent;
+    }
+    @keyframes tag {
+    from, 75%{ transform: translateY(50vh) scale(0.01)}
+    80%, to { transform: translateY(0vh) scale(1)}
+    }
+
+        
 </style>
