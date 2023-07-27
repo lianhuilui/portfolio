@@ -106,7 +106,7 @@
     on:scroll={scrolling}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: white; width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
     <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
         <a href="/">
@@ -127,7 +127,7 @@
                     <span class="hello">
                         hello.
                     </span>
-                    <span class="lian bg-white">
+                    <span class="lian" style="background-color: var(--bg-color)">
                         i'm hein zaw oo.
                     </span>
                 </div>
@@ -239,7 +239,7 @@
     </div>
 
     <div style="z-index: 1000; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
-        <div style="background: white; top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
+        <div style="background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
             <div class="flex flex-col h-full">
 
                 <div class="text-2xl pt-8 pb-4">
@@ -318,6 +318,22 @@
 </div>
 
 <style lang="postcss">
+    :global(html) {
+        --bg-color: white;
+        --text-color: black;
+        --code-color: #eee;
+    }
+    :global(html:not(.style-scope)[dark]) {
+        --bg-color: black;
+        --text-color: white;
+        --code-color: #222;
+    }
+
+    nav {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
     :global(:root) {
         --fontsize: 40px;
         --lineheight: 1.5;
@@ -325,6 +341,7 @@
         --headerpadding-x: 2vh;
         --oldpicturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
         --picturesize: 100vh;
+        color: var(--text-color)
     }
 
     :global(:root *) {
@@ -400,7 +417,7 @@
         line-height: calc(var(--lineheight) * var(--fontsize));
         height: calc(var(--lineheight) * var(--fontsize));
         overflow-y: hidden;
-        background: white;
+        background: var(--bg-color);
     }
     .top-layer {
         display: flex;
@@ -416,7 +433,7 @@
         font-family: Consolas, "Courier New", monospace;
         font-size: 11px;
         line-height: 0px!important;
-        color: #eee;
+        color: var(--code-color);
         user-select: none;
     }
     .parallax {
@@ -528,12 +545,12 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
 
     /* web */
     @keyframes web {
-    from, 18% { @apply text-black; }
+    from, 18% { color: var(--text-color); }
     19%, to { @apply text-red-500; }
     }
 
     .web {
-        color: white;
+        color: var(--bg-color);
         animation-name: web;
     }
 
@@ -552,7 +569,7 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     }
 
     .kit {
-        color: white;
+        color: var(--bg-color);
         display: inline-block!important;
         animation-name: kit;
         height: calc(var(--lineheight));
@@ -628,7 +645,6 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     } 
 
     nav { 
-        background: white;
         z-index: 1000;
         transform: translateY(calc(var(--percent) * -1000%));
     }
