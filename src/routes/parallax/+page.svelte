@@ -125,10 +125,10 @@
             <div class="top-layer">
                 <div class="text">
                     <span class="hello">
-                        hello.
+                        Hi,
                     </span>
                     <span class="lian" style="background-color: var(--bg-color)">
-                        i'm hein zaw oo.
+                        i'm Hein Zaw Oo
                     </span>
                 </div>
             </div>
@@ -151,17 +151,17 @@
                         <div class="parallax1">
                             <div class="verb">
                                 <span>
-                                    write&nbsp;
+                                    make&nbsp;
                                 </span>
                             </div>
                             <div class="noun">
                                 <div>
-                                    <span class="bg-yellow-200">
+                                    <span class="bg-yellow-200 text-black">
                                         reactive
                                     </span>&nbsp;UIs
                                 </div>
                                 <div>
-                                    <span class="bg-blue-200">
+                                    <span class="bg-blue-200 text-black">
                                         performant
                                     </span>&nbsp;APIs
                                 </div>
@@ -171,19 +171,17 @@
                         <div class="parallax2">
                             <div class="verb">
                                 <span class="">
-                                    am&nbsp;
                                 </span>
                             </div>
                             <div class="noun">
                                 <div>
-                                    <span class="">
-                                        a<span class="kit">
+                                    <span class="">am&nbsp;a<span class="kit">
                                             &nbsp;<span class="kit-inner">
-                                                fullstack</span></span>&nbsp;webdev
+                                                fullstack</span></span>&nbsp;web dev
                                     </span>
                                 </div>
                                 <div>
-                                    <span>serious!!!!!</span>
+                                    <span>use neovim (btw)</span>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +224,6 @@
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-        Skill Bubble:
     </div>
 
     <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
@@ -248,26 +245,28 @@
 
                 <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
                     <span style="">
-                        <iconify-icon icon="mdi:email-edit-outline" class="align-middle"></iconify-icon>
-                        <span class="align-middle">e-mail me</span>
+                        <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">e-mail me</span>
                     </span>
                     <span style="">
-                        <iconify-icon icon="mdi:document" class="align-middle"></iconify-icon>
-                        <span class="align-middle">get resume</span>
+                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">résumé</span>
                     </span>
                     <span style="">
-                        <iconify-icon icon="fa-brands:linkedin" class="align-middle"></iconify-icon>
-                        <span class="align-middle">linkedin</span>
+                        <iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">linkedin</span>
                     </span>
                     <span>
                     </span>
                 </div>
                     
                 <div class="text-sm pb-4">
-                    <button on:click={() => {scroll = 0}}>
+                    <button on:click={() => {window.scrollTo({top: 0, behavior: 'smooth' }); /*scroll = 0*/}}>
                         <iconify-icon icon="material-symbols:arrow-circle-up" class="text-3xl align-middle"></iconify-icon>
-                        <br>
-                            back to top
+                        <br>rewind back
                     </button>
                 </div>
             </div>
@@ -287,9 +286,8 @@
     <div id="percent-bar">
     </div>
 
-    <style></style>
-
     <div id="tags" style="position: fixed; z-index: 100; height: 100vh; width: 100vw;">
+        <h2>Skills:</h2>
         <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
         <div class="tag" style="--percent-delay: 0.02">Python</div>
         <div class="tag" style="--percent-delay: 0.025">Django</div>
