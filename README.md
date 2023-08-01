@@ -8,7 +8,23 @@ Using svelte-kit to build this site.
 * blur some (copyrighted or out of date or irrelevant) texts in thumbnails of portfolio
 
 # Feedback from wifey
-
-* background code be smaller
-* skippable scrolling animations / add menu
 * add white border around the bg
+
+# Main sections headings..
+ intro ->
+hi, my name is _____
+
+differentiate ->
+i'm a passionate **fullstack** web developer.
+i can work solo on a project, or vibe in a team.
+
+describe ->
+i make 
+
+i am -> adaptable
+     -> curious
+     -> detail-oriented
+i'm passionate about -> svelte
+                     -> 
+
+i'm expierence in -> (tags go here)

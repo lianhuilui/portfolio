@@ -1,11 +1,14 @@
 <script>
     import {onMount} from 'svelte'
     import 'iconify-icon'
+    import { browser } from '$app/environment'
 
     let scroll = 0;
     let height = 0;
     let oHeight = 0;
     let h = 0;
+
+    let light = false;
 
     let code = 'boo';
 
@@ -18,10 +21,6 @@
 
     let imgs = [
         '/head.png',
-        '/src/assets/hrcpoints.jpeg',
-        'http://placehold.co/1000x1000',
-        'http://placehold.co/1000x1000',
-        'http://placehold.co/1000x1000',
     ]
 
     onMount(() => {
@@ -36,6 +35,20 @@
             code = 'nodoc'
         }
     })
+
+    function toggleTheme() {
+        if (browser && document) {
+            let html = document.getElementsByTagName('html')[0]
+            if (html.hasAttribute('dark')) {
+                light = true
+                html.removeAttribute('dark')
+            } else {
+                light = false
+                html.setAttribute('dark', 'true')
+            }
+
+        }
+    }
 
     function matrix (str) {
         if (!animating) {
@@ -106,87 +119,47 @@
     on:scroll={scrolling}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; transition: background-color var(--transition-duration); background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
 
     <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
-        <a href="/">
+        <a href="#">
             Home
         </a>
-        <a href="/my-work">
+        <a href="#">
             Projects
         </a>
-        <a href="/contact">
+        <a href="#">
             Contact
         </a>
+        <button on:click={toggleTheme}>
+            {#if light}
+                <iconify-icon icon="mdi:lightbulb"/> Dark Mode
+            {:else}
+                <iconify-icon icon="mdi:lightbulb-on"/> Light Mode
+            {/if}
+        </button>
     </nav>
 
     <div id="wwrapper">
         <div id="wrapper">
-            <div class="top-layer">
-                <div class="text">
-                    <span class="hello">
-                        Hi,
-                    </span>
-                    <span class="lian" style="background-color: var(--bg-color)">
-                        i'm Hein Zaw Oo
-                    </span>
-                </div>
-            </div>
-            <div class="top-layer">
-                <div class="text">i
-                    <p class="inline web">
-                        <iconify-icon icon="fa-solid:heart" class="text-2xl align-middle" aria-valuetext="love"/>
-                    </p>
-                    to code
-                </div>
-            </div>
-            <div class="top-layer">
-                <div class="text">
-                    <span class=''>
-                        i&nbsp;
-                    </span>
-                </div>
-                <div class="view">
-                    <div class="parallax">
-                        <div class="parallax1">
-                            <div class="verb">
-                                <span>
-                                    make&nbsp;
-                                </span>
-                            </div>
-                            <div class="noun">
-                                <div>
-                                    <span class="bg-yellow-200 text-black">
-                                        reactive
-                                    </span>&nbsp;UIs
-                                </div>
-                                <div>
-                                    <span class="bg-blue-200 text-black">
-                                        performant
-                                    </span>&nbsp;APIs
-                                </div>
-                            </div>
-                            &nbsp;
-                        </div>
-                        <div class="parallax2">
-                            <div class="verb">
-                                <span class="">
-                                </span>
-                            </div>
-                            <div class="noun">
-                                <div>
-                                    <span class="">am&nbsp;a<span class="kit">
-                                            &nbsp;<span class="kit-inner">
-                                                fullstack</span></span>&nbsp;web dev
-                                    </span>
-                                </div>
-                                <div>
-                                    <span>use neovim (btw)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <p>Hi, I'm Hein Zaw Oo.</p>
+                <p>I'm an experienced 
+                    <span class="highlight" style="--percent-delay: 0.12; --highlight-text-color: white; --highlight-text-color: black;">full-stack</span> web developer.</p>
+
+                <p>I enjoy building backends with
+                    <span class="highlight" style="--percent-delay: 0.21; --highlight-text-color: white; --highlight-color: var(--django-color);">Django,</span>
+                    <span class="highlight" style="--percent-delay: 0.23; --highlight-text-color: white; --highlight-color: var(--nodejs-color);">NodeJS,</span> and
+                    <span class="highlight" style="--percent-delay: 0.25; --highlight-text-color: white; --highlight-color: var(--svelte-color);">SvelteKit</span>
+                </p>
+
+                <p>and user interfaces with 
+
+                    <span class="highlight" style="--percent-delay: 0.31; --highlight-text-color: white; --highlight-color: var(--tailwind-color);">Tailwind</span> and
+                    <span class="highlight" style="--percent-delay: 0.33; --highlight-text-color: white; --highlight-color: var(--svelte-color);">Svelte.</span>
+
+                </p>
+
             </div>
         </div>
     </div>
@@ -235,12 +208,39 @@
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
     </div>
 
-    <div style="z-index: 1000; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
-        <div style="background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
+    <div style="z-index: 1000; padding-9op: 0vh; position: absolute; top: 750vh; width: auto" class="flyby text-center">
+        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
             <div class="flex flex-col h-full">
 
                 <div class="text-2xl pt-8 pb-4">
-                    Are you looking to hire?
+                    Experience
+                </div>
+
+                <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
+                    <span style="">
+                        <iconify-icon icon="heroicons-solid:puzzle-piece" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">see projects</span>
+                    </span>
+                    <span style="">
+                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">résumé</span>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="z-index: 1008; padding-9op: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
+        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
+            <div class="flex flex-col h-full">
+
+                <div class="text-2xl pt-8 pb-4">
+                    Contact
                 </div>
 
                 <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
@@ -250,11 +250,6 @@
                         <span class="text-2xl align-middle">e-mail me</span>
                     </span>
                     <span style="">
-                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">résumé</span>
-                    </span>
-                    <span style="">
                         <iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>
                         <br>
                         <span class="text-2xl align-middle">linkedin</span>
@@ -262,7 +257,7 @@
                     <span>
                     </span>
                 </div>
-                    
+
                 <div class="text-sm pb-4">
                     <button on:click={() => {window.scrollTo({top: 0, behavior: 'smooth' }); /*scroll = 0*/}}>
                         <iconify-icon icon="material-symbols:arrow-circle-up" class="text-3xl align-middle"></iconify-icon>
@@ -286,40 +281,56 @@
     <div id="percent-bar">
     </div>
 
+    <div id="percent">
+    </div>
+
     <div id="tags" style="position: fixed; z-index: 100; height: 100vh; width: 100vw;">
         <h2>Skills:</h2>
         <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
-        <div class="tag" style="--percent-delay: 0.02">Python</div>
+        <div class="tag" style="--percent-delay: 0.09">Python</div>
         <div class="tag" style="--percent-delay: 0.025">Django</div>
         <div class="tag" style="--percent-delay: 0.028">Javascript</div>
-        <div class="tag" style="--percent-delay: 0.015">Typescript</div>
+        <div class="tag" style="--percent-delay: 0.115">Typescript</div>
         <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
         <div class="tag" style="--percent-delay: 0.06">Express</div>
         <div class="tag" style="--percent-delay: 0.07">Firebase</div>
-        <div class="tag" style="--percent-delay: 0.019">Astro</div>
+        <div class="tag" style="--percent-delay: 0.019">PHP</div>
         <div class="tag" style="--percent-delay: 0.08">Joomla</div>
-        <div class="tag" style="--percent-delay: 0.03">Shopify</div>
+        <div class="tag" style="--percent-delay: 0.11">Shopify</div>
         <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
         <div class="tag" style="--percent-delay: 0.022">SQL</div>
-        <div class="tag" style="--percent-delay: 0.06">Google Cloud Platform</div>
-        <div class="tag" style="--percent-delay: 0.024">Flutter</div>
+        <div class="tag" style="--percent-delay: 0.08">Google Cloud Platform</div>
+        <div class="tag" style="--percent-delay: 0.124">Flutter</div>
         <div class="tag" style="--percent-delay: 0.075">CSS</div>
+        <div class="tag" style="--percent-delay: 0.078">Bootstrap</div>
+        <div class="tag" style="--percent-delay: 0.082">Tailwind</div>
         <div class="tag" style="--percent-delay: 0.07">HTML</div>
         <div class="tag" style="--percent-delay: 0.038">C#</div>
-        <div class="tag" style="--percent-delay: 0.04">.NET</div>
+        <div class="tag" style="--percent-delay: 0.12">.NET</div>
         <div class="tag" style="--percent-delay: 0.06">Firebase</div>
         <div class="tag" style="--percent-delay: 0.068">jQuery</div>
-        <div class="tag" style="--percent-delay: 0.05">Git</div>
-        <div class="tag" style="--percent-delay: 0.04">Linux</div>
+        <div class="tag" style="--percent-delay: 0.15">Git</div>
+        <div class="tag" style="--percent-delay: 0.14">Linux</div>
     </div>
 
 </div>
 
-<style lang="postcss">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400&family=Pacifico&family=Victor+Mono:wght@100&display=swap');
+    :global(:root) {
+        font-family: 'Noto Sans Display', sans-serif;
+        font-weight: 100;
+        --django-color: #0c4b33;
+        --nodejs-color: #026e00;
+        --svelte-color: #ff3e00;
+        --tailwind-color: #38bdf8;
+    }
+
     :global(html) {
         --bg-color: white;
         --text-color: black;
         --code-color: #eee;
+        --transition-duration: 0.5s;
     }
     :global(html:not(.style-scope)[dark]) {
         --bg-color: black;
@@ -330,16 +341,51 @@
     nav {
         background-color: var(--bg-color);
         color: var(--text-color);
+        transition: background-color var(--transition-duration), color var(--transition-duration);
     }
 
-    :global(:root) {
-        --fontsize: 40px;
+    @media (max-width: 320px) {
+        :global(:root) {
+            --fontsize: 10px;
+            --frame-border: 2px;
+        }
+    }
+    @media (min-width: 320px) {
+        :global(:root) {
+            --fontsize: 12px;
+            --frame-border: 2px;
+        }
+    }
+    @media (min-width: 420px) {
+        :global(:root) {
+            --fontsize: 14px;
+        }
+    }
+    @media (min-width: 550px) {
+        :global(:root) {
+            --fontsize: 20px;
+        }
+    }
+    @media (min-width: 660px) {
+        :global(:root) {
+            --fontsize: 24px;
+            --frame-border: 4px;
+        }
+    }
+    @media (min-width: 800px) {
+        :global(:root) {
+            --fontsize: 30px;
+        }
+    }
+
+    :global(:root *) {
         --lineheight: 1.5;
         --headerpadding: 2vh;
         --headerpadding-x: 2vh;
         --oldpicturesize: calc(100vh - (var(--headerpadding-x) * 2 + var(--fontsize)));
         --picturesize: 100vh;
-        color: var(--text-color)
+        color: var(--text-color);
+        transition: color var(--transition-duration);
     }
 
     :global(:root *) {
@@ -354,48 +400,8 @@
         animation-duration: 1s;
     }
 
-    @keyframes top {
-    from { transform: translateY(0); }
-    10% { transform: translateY(0); }
-    20% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    30% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    65% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    70% { transform: translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
-    to { transform:  translateY(calc(-3 * var(--lineheight) * var(--fontsize))); }
-    }
-
-    @keyframes parallax {
-    from { transform: translateY(0); }
-    35% { transform: translateY(0); }
-    40% { transform: translateY(0); }
-    50% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    }
-
-    @keyframes noun {
-    from { transform: translateY(0); }
-    30% { transform: translateY(0); }
-    40% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    50% { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    60% { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    to { transform: translateY(calc(-2 * var(--lineheight) * var(--fontsize))); }
-    }
-
-    @keyframes noun2 {
-    from, 57% { transform: translateY(0); }
-    62%, to { transform: translateY(calc(-1 * var(--lineheight) * var(--fontsize))); }
-    }
-
-    /* animation */
-    #wrapper { animation-name: wrapper; }
-    .top-layer { animation-name: top; }
-    .parallax { animation-name: parallax; }
-    .parallax1 .noun { animation-name: noun; }
-    .parallax2 .noun { animation-name: noun2; }
-
-    /* styles */
-
     #wwrapper {
+        border: var(--frame-border) solid var(--text-color);
         animation-name: wwrapper;
         white-space: nowrap;
         padding: var(--headerpadding) var(--headerpadding-x);
@@ -413,50 +419,45 @@
         position: relative;
         display:block;
         line-height: calc(var(--lineheight) * var(--fontsize));
-        height: calc(var(--lineheight) * var(--fontsize));
+        /*height: calc(var(--lineheight) * var(--fontsize));*/
         overflow-y: hidden;
         background: var(--bg-color);
     }
-    .top-layer {
-        display: flex;
-        justify-content: center;
+    #wrapper { animation-name: wrapper; }
+    @keyframes wrapper {
+    from{ opacity: 0; height: 0px; }
+    2%,8%  { opacity: 1; height: calc(1* var(--lineheight) * var(--fontsize))}
+    10%, 15%  { opacity: 1; height: calc(2* var(--lineheight) * var(--fontsize))}
+    20%, 25%  { opacity: 1; height: calc(3* var(--lineheight) * var(--fontsize))}
+    30%, 40%  { opacity: 1; height: calc(4* var(--lineheight) * var(--fontsize))}
+    42% { opacity: 0; height: calc(0* var(--lineheight) * var(--fontsize))}
+    to  { opacity: 0; height: calc(0* var(--lineheight) * var(--fontsize))}
     }
-    .text, .view {
-        font-size: var(--fontsize);
-        display: block;
-        line-height: calc(var(--lineheight) * var (--fontsize));
-        overflow: hidden;
+
+    @keyframes wwrapper {
+      from {opacity: 0; }
+      2%, 40% {opacity: 1;}
+      42%, to { opacity: 0}
     }
+
     .code-wrapper code {
         font-family: Consolas, "Courier New", monospace;
         font-size: 11px;
         line-height: 0px!important;
         color: var(--code-color);
+        transition: color var(--transition-duration);
         user-select: none;
     }
-    .parallax {
-        display: flex;
-        flex-direction: column;
-    }
-    .parallax1, .parallax2 {
-        height: calc(var(--fontsize) * var(--lineheight));
-        display: flex;
-    }
-    .noun, .verb {
-        display: flex;
-        flex-direction: column;
-    }
-    .text span,
-    .noun span,
-    .verb span{
-        display: inline;
-    }
     #percent {
-        top: 0;
-        width: 100%;
+        bottom: 0;
+        width: 100vw;
         z-index: 1000;
         text-align: center;
         position: fixed;
+    }
+    #percent:after {
+        counter-reset: per calc(var(--percent) * 100);
+        content: counter(per) '%'
     }
     #percent-bar {
         top: 0;
@@ -467,14 +468,13 @@
         height: 4px;
         position: fixed;
     }
-    #percent:after {
-        counter-reset: per calc(var(--percent) * 100);
-        content: counter(per) '%'
-    }
     #anitext {
         width: 100vw;
         background: transparent;
         z-index: 10;
+        font-size: var(--fontsize);
+    }
+    #wrapper p {
         font-size: var(--fontsize);
     }
 
@@ -541,54 +541,6 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         background-position: center center;
     }
 
-    /* web */
-    @keyframes web {
-    from, 18% { color: var(--text-color); }
-    19%, to { @apply text-red-500; }
-    }
-
-    .web {
-        color: var(--bg-color);
-        animation-name: web;
-    }
-
-    @keyframes wrapper {
-    from { opacity: 0; }
-    2% { opacity: 1; }
-    65% { opacity: 1; }
-    68% { opacity: 0; }
-    to { opacity: 0; }
-    }
-
-    /* kit */
-    @keyframes kit {
-    from, 50% { width: 0px; }
-    52%, to { width: 3.8em }
-    }
-
-    .kit {
-        color: var(--bg-color);
-        display: inline-block!important;
-        animation-name: kit;
-        height: calc(var(--lineheight));
-        vertical-align: top;
-        overflow: hidden;
-    }
-
-    .kit-inner {
-        background: orange;
-    }
-
-    /* hello */
-
-    /* lian */
-    @keyframes lian {
-    from, 5% { opacity: 0}
-    7%, to { opacity: 1.0}
-    }
-    .lian {
-        animation-name: lian;
-    }
 
     /* fly by texts */
     .flyby {
@@ -597,8 +549,8 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
 
     /* animation */
     @keyframes flyby {
-    from, 30% {
-        transform: translateY(100vh)
+    from, 70% {
+        transform: translateY(50vh)
     }
     to {
         transform: translateY(0)
@@ -618,7 +570,9 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
 
     #scroll-helper span {
         position: fixed;
-        bottom: 4vh;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
         width: 100vw;
         text-align: center;
     }
@@ -634,7 +588,7 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         animation-name: bounce;
         animation-play-state: running;
         animation-iteration-count: infinite;
-        animation-duration: 2s;
+        animation-duration: 1.6s;
         animation-timing-function: ease-in-out;
     }
     @keyframes bounce {
@@ -644,10 +598,10 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
 
     nav { 
         z-index: 1000;
-        transform: translateY(calc(var(--percent) * -1000%));
+        transform: translateY(calc(var(--percent) * -1000% * 0.5));
     }
-    nav a {
-        @apply p-4;
+    nav a, nav button {
+        padding: 8px;
     }
     #tags {
         margin-top: 20vh;
@@ -655,8 +609,10 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         text-align: center;
     }
     @keyframes tags {
-    from, 75% { top: 100vh }
-    to, 82% { top: 0vh }
+    from, 40% { top: 100vh }
+    45% { top: 0vh }
+    87% { top: 0vh }
+    88%, to { top: -100vh }
     }
 
     .tag {
@@ -671,9 +627,50 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         background:transparent;
     }
     @keyframes tag {
-    from, 75%{ transform: translateY(50vh) scale(0.01)}
-    80%, to { transform: translateY(0vh) scale(1)}
+    from, 44%{ transform: translateY(50vh) scale(0.01)}
+    50%, to { transform: translateY(0vh) scale(1)}
     }
 
-        
+    @keyframes highlight {
+    from { right: 100%;}
+    to, 1% {right: 0%;}
+    }
+    @keyframes highlight-text {
+    from { color: var(--text-color); }
+    to, 2% { color: var(--highlight-text-color); }
+    }
+    .highlight {
+        font-weight: normal;
+        position: relative;
+        padding-left: 4px;
+        padding-right: 4px;
+        --highlight-color: yellow;
+
+        animation-name: highlight-text;
+        animation-play-state: paused;
+        animation-delay: calc(calc(var(--percent) * -1s) + calc(var(--percent-delay) * 1s));
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+
+    }
+    .highlight::before {
+        animation-name: highlight;
+
+        animation-play-state: paused;
+        animation-delay: calc(calc(var(--percent) * -1s) + calc(var(--percent-delay) * 1s));
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+
+        content: "";
+        position: absolute;
+        background: var(--highlight-color);
+        z-index: -1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+
 </style>
