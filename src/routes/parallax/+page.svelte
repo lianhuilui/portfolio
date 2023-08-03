@@ -10,7 +10,7 @@
 
     let light = false;
 
-    let code = 'boo';
+    let code = '';
 
     let anitext = 'hello world';
 
@@ -28,10 +28,10 @@
             if (html) {
                 code = '<!DOCTYPE html>\n<html lang="en">\n' + html[0].innerHTML + '\n</html>'
             } else {
-                code = 'no'
+                code = ''
             }
         } else {
-            code = 'nodoc'
+            code = ''
         }
     })
 
@@ -176,7 +176,8 @@
 
     <div class="code-wrapper">
         <div class="code">
-            <code>{code}{code}</code>
+            <code class="">{code}</code>
+            <code class="hidden xl:inline">{code}</code>
         </div>
     </div>
 
@@ -300,31 +301,26 @@
         <div class="tag" style="--percent-delay: 0.10">Linux</div>
     </div>
 
-    <h1>Heading</h1>
+    <h1 id="projects-header">Projects Showcase</h1>
 
     <div id="projects" style="" class="project">
-        <div class="text-2xl pt-8 pb-4">Project 1</div>
-        <div>Hi</div>
-        <div>There</div>
+        <div class="text-2xl pt-8 pb-4">PWA in SvelteKit</div>
+        <div></div>
     </div>
 
     <div id="projects1" style="" class="project">
-        <div class="text-2xl pt-8 pb-4">Project 2</div>
-        <div>Hi</div>
-        <div>There</div>
+        <div class="text-2xl pt-8 pb-4">Rubiks Cube Art Simulator</div>
     </div>
 
     <div id="projects2" style="" class="project">
-        <div class="text-2xl pt-8 pb-4">Project 3</div>
-        <div>Hi</div>
-        <div>There</div>
+        <div class="text-2xl pt-8 pb-4">Samsung Social Game</div>
     </div>
 
 
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400&family=Pacifico&family=Victor+Mono:wght@100&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400&family=Pacifico&family=Victor+Mono:wght@100&family=Major+Mono+Display&display=swap');
     :global(:root) {
         font-family: 'Noto Sans Display', sans-serif;
         font-weight: 100;
@@ -343,7 +339,7 @@
     :global(html:not(.style-scope)[dark]) {
         --bg-color: black;
         --text-color: white;
-        --code-color: #222;
+        --code-color: #333;
     }
 
     nav {
@@ -449,9 +445,9 @@
     }
 
     .code-wrapper code {
-        font-family: Consolas, "Courier New", monospace;
+        font-family: "Major Mono Display", Consolas, "Courier New", monospace;
+        text-transform: lowercase;
         font-size: 11px;
-        line-height: 0px!important;
         color: var(--code-color);
         transition: color var(--transition-duration);
         user-select: none;
@@ -631,6 +627,20 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     88%, to { top: -100vh }
     }
 
+
+    #projects-header {
+      text-align: center;
+      animation-name: project-header;
+      animation-timing-function: linear;
+      position: fixed;
+      z-index: 100;
+      height: 10vh;
+      width: 100vw;
+    }
+    @keyframes project-header {
+    from, 62.1% { top: 100vh }
+    to, 71% { top: 0vh }
+    }
     .project {
        background: var(--bg-color);
        position: fixed;
