@@ -20,7 +20,6 @@
     let animating = false; 
 
     let imgs = [
-        '/head.png',
     ]
 
     onMount(() => {
@@ -119,7 +118,7 @@
     on:scroll={scrolling}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; transition: background-color var(--transition-duration); background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 20;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; transition: background-color var(--transition-duration); background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
 
     <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
         <a href="#">
@@ -208,40 +207,25 @@
     <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
     </div>
 
-    <div style="z-index: 1000; padding-9op: 0vh; position: absolute; top: 750vh; width: auto" class="flyby text-center">
-        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
-            <div class="flex flex-col h-full">
+    <div style="z-index: 30; padding-9op: 0vh; position: absolute; top: 650vh; width: auto" class="flyby text-center">
 
-                <div class="text-2xl pt-8 pb-4">
-                    Experience
-                </div>
-
-                <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
-                    <span style="">
-                        <iconify-icon icon="heroicons-solid:puzzle-piece" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">see projects</span>
-                    </span>
-                    <span style="">
-                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">résumé</span>
-                    </span>
-                </div>
-
-            </div>
+        <div class="hidden" style=" background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
+            <div class=""></div>
 
         </div>
 
+
     </div>
 
-    <div style="z-index: 1008; padding-9op: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
-        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
-            <div class="flex flex-col h-full">
+    <div style="z-index: 120; padding-9op: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
+        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center;">
+            <div class="flex flex-col h-full pt-4">
 
                 <div class="text-2xl pt-8 pb-4">
-                    Contact
+                    See All Projects
                 </div>
+
+                <hr style="border-width: 2px; width: 20px; margin: 0 auto;">
 
                 <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
                     <span style="">
@@ -254,7 +238,10 @@
                         <br>
                         <span class="text-2xl align-middle">linkedin</span>
                     </span>
-                    <span>
+                    <span style="">
+                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
+                        <br>
+                        <span class="text-2xl align-middle">résumé</span>
                     </span>
                 </div>
 
@@ -309,9 +296,30 @@
         <div class="tag" style="--percent-delay: 0.12">.NET</div>
         <div class="tag" style="--percent-delay: 0.06">Firebase</div>
         <div class="tag" style="--percent-delay: 0.068">jQuery</div>
-        <div class="tag" style="--percent-delay: 0.15">Git</div>
-        <div class="tag" style="--percent-delay: 0.14">Linux</div>
+        <div class="tag" style="--percent-delay: 0.11">Git</div>
+        <div class="tag" style="--percent-delay: 0.10">Linux</div>
     </div>
+
+    <h1>Heading</h1>
+
+    <div id="projects" style="" class="project">
+        <div class="text-2xl pt-8 pb-4">Project 1</div>
+        <div>Hi</div>
+        <div>There</div>
+    </div>
+
+    <div id="projects1" style="" class="project">
+        <div class="text-2xl pt-8 pb-4">Project 2</div>
+        <div>Hi</div>
+        <div>There</div>
+    </div>
+
+    <div id="projects2" style="" class="project">
+        <div class="text-2xl pt-8 pb-4">Project 3</div>
+        <div>Hi</div>
+        <div>There</div>
+    </div>
+
 
 </div>
 
@@ -581,8 +589,8 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         animation-name: hide-after-scroll;
     }
     @keyframes hide-after-scroll {
-    from, 3% { opacity: 1; }
-    5%, to { opacity: 0; }
+    from { opacity: 1; }
+    1%, to { opacity: 0; }
     }
     .bounce {
         animation-name: bounce;
@@ -603,6 +611,14 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     nav a, nav button {
         padding: 8px;
     }
+    nav {
+      animation-name: nav;
+    }
+    @keyframes nav {
+        from { transform: translateY(0)}
+        20%, 97% { transform: translateY(calc(-1 * (8px * 2 + 25px + 4px /* margin of error */)))}
+        to { transform: translateY(0)}
+    }
     #tags {
         margin-top: 20vh;
         animation-name: tags;
@@ -613,6 +629,48 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     45% { top: 0vh }
     87% { top: 0vh }
     88%, to { top: -100vh }
+    }
+
+    .project {
+       background: var(--bg-color);
+       position: fixed;
+       z-index: 100;
+       height: 100vh;
+       width: 100vw;
+    }
+  
+    #projects {
+      border: 1px solid red;
+      animation-name: projects;
+      animation-timing-function: linear;
+      text-align: center;
+      transition: background-color var(--transition-duration);
+    }
+    #projects1 {
+      animation-name: projects1;
+      animation-timing-function: linear;
+      border: 1px solid green;
+      text-align: center;
+      transition: background-color var(--transition-duration);
+    }
+    #projects2 {
+      animation-name: projects2;
+      animation-timing-function: linear;
+      border: 1px solid blue;
+      text-align: center;
+      transition: background-color var(--transition-duration);
+    }
+    @keyframes projects {
+    from, 63% { top: 100vh }
+    to, 72% { top: 0vh }
+    }
+    @keyframes projects1 {
+    from, 72% { top: 100vh }
+    to, 81% { top: 0vh }
+    }
+    @keyframes projects2 {
+    from, 81% { top: 100vh }
+    to, 90% { top: 0vh }
     }
 
     .tag {
