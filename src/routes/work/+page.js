@@ -8,6 +8,7 @@ export function load() {
             { "title": "Social Game for Mkt. Campaign", "tags": ['vanilla js', 'nodejs', 'gcp'], description: "A web-based Facebook Instant Game for launch of a new product.", img: "/assets/galaxy10mm.jpg" },
             { "title": "Booking Mgmt. System", "tags": ['django', 'angularjs'], description: "Booking management system for Bangkok Airport VIP service provider." },
             { "title": "Company Websites", "tags": ['html', 'css', 'joomla', 'astro'], description: "Various static sites or CMS-backed company websites." },
+            { "title": "Rubiks Sim", "tags": ['html', 'css', 'svelte'], description: "Passion Project", url: "/rubiks", img: "/john1.png" },
         ]
     };
 }

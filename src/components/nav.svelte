@@ -5,7 +5,7 @@ import { page } from "$app/stores"
 <nav class="max-w-5xl mx-auto bg-[#fff]">
     <ul class="">
         <li class:active={$page.route.id == '/'}>
-            <a href="/parallax">
+            <a href="/">
                 <iconify-icon icon="mdi:home" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
                     Home

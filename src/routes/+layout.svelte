@@ -26,7 +26,7 @@
 
 <style lang="postcss">
     :root {
-        @apply bg-gray-300;
+        background: var(--bg-color)
     }
     footer {
         @apply border-0 border-t-[1px] border-solid border-slate-400;
