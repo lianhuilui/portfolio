@@ -19,10 +19,6 @@
     $: percent = scroll / height;
     $: p = scroll / (h - height)
 
-    let animating = false; 
-
-    let imgs = [
-    ]
 
     onMount(() => {
         if (document) {
@@ -36,22 +32,6 @@
             code = ''
         }
     })
-
-    let darkMode;
-
-    if (browser) {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            darkMode = true;
-            setTimeout(() => {
-                document.documentElement.setAttribute('dark', 'true')
-            }, 500)
-        } else {
-            darkMode = false;
-            setTimeout(() => {
-                document.documentElement.removeAttribute('dark')
-            }, 500)
-        }
-    }
 
     function toggleTheme() {
         if (browser && document) {
@@ -211,14 +191,6 @@
 
     </div>
 
-    <div id="picture_wrapper">
-        {#each imgs as img}
-            <div class="picture">
-                <div class="img" style="background-image: url({img})"></div>
-            </div>
-        {/each}
-    </div>
-
     <div id="percent-bar">
     </div>
 
@@ -328,29 +300,6 @@
 </div>
 
     <style>
-
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400&family=Pacifico&family=Victor+Mono:wght@100&family=Major+Mono+Display&display=swap');
-    :global(:root) {
-        font-family: 'Noto Sans Display', sans-serif;
-        font-weight: 100;
-        --django-color: #0c4b33;
-        --nodejs-color: #026e00;
-        --svelte-color: #ff3e00;
-        --tailwind-color: #38bdf8;
-    }
-
-    :global(html) {
-        --bg-color: white;
-        --text-color: black;
-        --code-color: #eee;
-        --transition-duration: 0.5s;
-    }
-    :global(html:not(.style-scope)[dark]) {
-        --bg-color: black;
-        --text-color: white;
-        --code-color: #333;
-    }
-
     nav {
         background-color: var(--bg-color);
         color: var(--text-color);

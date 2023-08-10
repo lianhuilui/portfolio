@@ -41,7 +41,7 @@
     I used Planetscale, a cloud database provider for its free tier and also because I had heard good things about it and wnated to try. There is no risk of vendor lock-in, but there are caveats. Planetscale does not support true foreign key constraints. Due to this restriction, I might migrate to a different provider in the future.
 </p>
 
-<h3>Host</h3>
+<h3>Hosting</h3>
 
 <p>I went with Vercel for their ease of deployment when it comes to SvelteKit projects. Also, their free tier covers our use case. One downside I discovered was their slow cold-start time. If it becomes a noticable problem, I will migrate to DigitalOcean. SvelteKit has support for vercel, netlify, or plain node servers.</p>
 

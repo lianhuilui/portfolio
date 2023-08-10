@@ -12,11 +12,11 @@ import { page } from "$app/stores"
                 </span>
             </a>
         </li>
-        <li class:active={$page.route.id.startsWith('/my-work')}>
-            <a href="/my-work">
+        <li class:active={$page.route.id.startsWith('/work')}>
+            <a href="/work">
                 <iconify-icon icon="mdi:code" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
-                    My&nbsp;Work
+                    Projects
                 </span>
             </a>
         </li>
@@ -49,6 +49,7 @@ import { page } from "$app/stores"
     nav {
         @apply border-0 border-b-[1px] border-slate-400 border-solid;
         @apply text-2xl;
+        background-color: var(--bg-color)
     }
     nav ul {
     /* @apply max-sm:flex-col sm:flex;*/
@@ -67,7 +68,7 @@ import { page } from "$app/stores"
         @apply px-6;
         @apply py-4;
         text-decoration: none;
-        color: black;
+        color: var(--text-color);
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     }

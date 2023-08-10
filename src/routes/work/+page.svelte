@@ -66,5 +66,6 @@
     }
     .tag {
         @apply rounded-sm px-1 border-[1px] border-gray-400 border-solid bg-gray-300;
+        color: var(--text-color)
     }
 </style>
