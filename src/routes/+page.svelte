@@ -660,7 +660,7 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     }
   
     #projects {
-      border-top: 2px solid white;
+      border-top: 2px solid var(--text-color);
       animation-name: projects;
       animation-timing-function: linear;
       text-align: center;
@@ -669,14 +669,14 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     #projects1 {
       animation-name: projects1;
       animation-timing-function: linear;
-      border-top: 2px solid white;
+      border-top: 2px solid var(--text-color);
       text-align: center;
       transition: background-color var(--transition-duration);
     }
     #projects2 {
       animation-name: projects2;
       animation-timing-function: linear;
-      border-top: 2px solid white;
+      border-top: 2px solid var(--text-color);
       text-align: center;
       transition: background-color var(--transition-duration);
     }
