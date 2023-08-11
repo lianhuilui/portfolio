@@ -6,7 +6,7 @@ import { page } from "$app/stores"
     <ul class="">
         <li class:active={$page.route.id == '/'}>
             <a href="/">
-                <iconify-icon icon="mdi:home" class="sm:hidden text-3xl align-middle"/>
+                <iconify-icon icon="ph:house-light" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
                     Home
                 </span>
@@ -14,33 +14,19 @@ import { page } from "$app/stores"
         </li>
         <li class:active={$page.route.id.startsWith('/work')}>
             <a href="/work">
-                <iconify-icon icon="mdi:code" class="sm:hidden text-3xl align-middle"/>
+                <iconify-icon icon="ph:code-light" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
                     Projects
                 </span>
             </a>
         </li>
-        {#if false}
-        <li class:active={$page.route.id.startsWith('/tutorials')}>
-
-            <a href="/tutorials">
-                <iconify-icon icon="mdi:teach" class="sm:hidden text-3xl align-middle"/>
-
-                <span class="hidden sm:inline">
-                    Tutorials
-                </span>
-            </a>
-
-        </li>
-        {/if}
         <li class:active={$page.route.id.startsWith('/contact')}>
             <a href="/contact">
-                <iconify-icon icon="mdi:envelope" class="sm:hidden text-3xl align-middle"/>
+                <iconify-icon icon="ph:envelope-simple-light" class="sm:hidden text-3xl align-middle"/>
                 <span class="hidden sm:inline">
                     Contact
                 </span>
             </a>
-
         </li>
     </ul>
 </nav>

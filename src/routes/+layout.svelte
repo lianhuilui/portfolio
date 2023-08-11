@@ -4,6 +4,7 @@
     import { fly } from 'svelte/transition'
     import Nav from '../components/nav.svelte'
     import { browser } from '$app/environment'
+    import { page } from "$app/stores"
 
     let y: number;
     $: sticky = y > 200
@@ -19,7 +20,6 @@
             }, 500)
         }
     }
-
 </script>
 
 <svelte:window bind:scrollY={y}></svelte:window>
@@ -79,13 +79,13 @@ main {
 :global(html) {
     --bg-color: white;
     --text-color: black;
-    --code-color: #eee;
+    --code-color: #ddd;
     --transition-duration: 0.5s;
 }
 :global(html:not(.style-scope)[dark]) {
     --bg-color: black;
     --text-color: white;
-    --code-color: #333;
+    --code-color: #222;
 }
 
 </style>

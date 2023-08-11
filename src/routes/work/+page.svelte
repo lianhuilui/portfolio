@@ -10,7 +10,7 @@
 <svelte:window bind:scrollY={scrollY} />
 
 <div style="display: contents; --scroll: {scrollY};">
-    <h1 class="text-3xl">My Portfolio
+    <h1 class="text-3xl">Portfolio
         <br>
         <span class="text-sm">as a freelance full-stack developer</span>
     </h1>

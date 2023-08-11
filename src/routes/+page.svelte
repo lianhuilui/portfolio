@@ -2,6 +2,7 @@
     import {onMount} from 'svelte'
     import 'iconify-icon'
     import { browser } from '$app/environment'
+    import { page } from "$app/stores"
 
     let scroll = 0;
     let height = 0;
@@ -25,6 +26,7 @@
             let html = document.getElementsByTagName('html');
             if (html) {
                 code = '<!DOCTYPE html>\n<html lang="en">\n' + html[0].innerHTML + '\n</html>'
+                code = code + code + code;
             } else {
                 code = ''
             }
@@ -58,13 +60,13 @@
 <div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; transition: background-color var(--transition-duration); background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
 
     <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
-        <a href="#">
+        <a href="/">
             Home
         </a>
         <a href="/work">
-            Projects
+            Portfolio
         </a>
-        <a href="#">
+        <a href="/contact">
             Contact
         </a>
         <button on:click={toggleTheme}>
@@ -109,8 +111,7 @@
 
     <div class="code-wrapper">
         <div class="code">
-            <code class="">{code}</code>
-            <code class="hidden xl:inline">{code}</code>
+            <code class="" aria-hidden="true">{code}</code>
         </div>
     </div>
 
@@ -151,32 +152,40 @@
 
     </div>
 
-    <div style="z-index: 120; padding-9op: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
-        <div style="transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center;">
+    <div style="z-index: 120; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
+        <div style="border-top: 2px solid var(--text-color); transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center;">
             <div class="flex flex-col h-full pt-4">
 
-                <div class="text-2xl pt-8 pb-4">
-                    See All Projects
+                <div class="text-2xl pt-8 pb-4 hidden">
                 </div>
 
                 <hr style="border-width: 2px; width: 20px; margin: 0 auto;">
 
-                <div class="flex flex-col justify-around w-auto mx-auto flex-grow">
-                    <span style="">
-                        <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">e-mail me</span>
-                    </span>
-                    <span style="">
-                        <iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">linkedin</span>
-                    </span>
-                    <span style="">
-                        <iconify-icon icon="heroicons-solid:document-download" class="text-5xl align-middle"></iconify-icon>
-                        <br>
-                        <span class="text-2xl align-middle">résumé</span>
-                    </span>
+                <div class="px-4 md:px-0 grid grid-cols-2 md:grid-cols-4 mx-auto h-full gap-4 content-center w-full max-w-[960px]">
+
+                    <a href="/work" class="hover:bg-green-500 block py-4" style="transition: background-color 0.2s">
+                        <iconify-icon icon="ph:arrow-square-out-light" class="text-5xl align-middle"></iconify-icon>
+                        <span class="block text-2xl align-middle">
+                            more projects
+                        </span>
+                    </a> 
+
+                    <a href="/contact" class="hover:bg-red-500 block py-4" style="transition: background-color 0.2s">
+                        <!-- <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon> -->
+                        <iconify-icon icon="ph:envelope-simple-light" class="text-5xl align-middle"></iconify-icon>
+                        <span class="block text-2xl align-middle">contact me</span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/heinzawoo" class="block hover:bg-blue-500 py-4" target="_blank" style="transition: background-color 0.2s">
+                        <!--<iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>-->
+                        <iconify-icon icon="ph:linkedin-logo-light" class="text-5xl align-middle"></iconify-icon>
+                        <span class="block text-2xl align-middle">linkedin</span>
+                    </a>
+
+                    <a href="/resume" class="block hover:bg-yellow-500 py-4" style="transition: background-color 0.2s">
+                        <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
+                        <span class="block text-2xl align-middle">résumé</span>
+                    </a>
                 </div>
 
                 <div class="text-sm pb-4">
@@ -197,38 +206,46 @@
     <div id="percent">
     </div>
 
-    <div id="tags" style="position: fixed; z-index: 100; height: 100vh; width: 100vw;">
-        <h2>Skills:</h2>
-        <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
-        <div class="tag" style="--percent-delay: 0.09">Python</div>
-        <div class="tag" style="--percent-delay: 0.025">Django</div>
-        <div class="tag" style="--percent-delay: 0.028">Javascript</div>
-        <div class="tag" style="--percent-delay: 0.115">Typescript</div>
-        <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
-        <div class="tag" style="--percent-delay: 0.06">Express</div>
-        <div class="tag" style="--percent-delay: 0.07">Firebase</div>
-        <div class="tag" style="--percent-delay: 0.019">PHP</div>
-        <div class="tag" style="--percent-delay: 0.08">Joomla</div>
-        <div class="tag" style="--percent-delay: 0.11">Shopify</div>
-        <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
-        <div class="tag" style="--percent-delay: 0.022">SQL</div>
-        <div class="tag" style="--percent-delay: 0.08">Google Cloud Platform</div>
-        <div class="tag" style="--percent-delay: 0.124">Flutter</div>
-        <div class="tag" style="--percent-delay: 0.075">CSS</div>
-        <div class="tag" style="--percent-delay: 0.078">Bootstrap</div>
-        <div class="tag" style="--percent-delay: 0.082">Tailwind</div>
-        <div class="tag" style="--percent-delay: 0.07">HTML</div>
-        <div class="tag" style="--percent-delay: 0.038">C#</div>
-        <div class="tag" style="--percent-delay: 0.12">.NET</div>
-        <div class="tag" style="--percent-delay: 0.06">Firebase</div>
-        <div class="tag" style="--percent-delay: 0.068">jQuery</div>
-        <div class="tag" style="--percent-delay: 0.11">Git</div>
-        <div class="tag" style="--percent-delay: 0.10">Linux</div>
+        <div id="tags" style="position: fixed; z-index: 100; height: 100vh;width: 100vw;" class="grid grid-cols-1 content-center">
+
+        <div>
+            <h2>Skills:</h2>
+            <div class="tag" style="--percent-delay: 0.01">Svelte/Kit</div>
+            <div class="tag" style="--percent-delay: 0.09">Python</div>
+            <div class="tag" style="--percent-delay: 0.025">Django</div>
+            <div class="tag" style="--percent-delay: 0.028">Javascript</div>
+            <div class="tag" style="--percent-delay: 0.115">Typescript</div>
+            <div class="tag" style="--percent-delay: 0.03">NodeJS</div>
+            <div class="tag" style="--percent-delay: 0.06">Express</div>
+            <div class="tag" style="--percent-delay: 0.07">Firebase</div>
+            <div class="tag" style="--percent-delay: 0.019">PHP</div>
+            <div class="tag" style="--percent-delay: 0.08">Joomla</div>
+            <div class="tag" style="--percent-delay: 0.11">Shopify</div>
+            <div class="tag" style="--percent-delay: 0.02">AngularJS</div>
+            <div class="tag" style="--percent-delay: 0.022">SQL</div>
+            <div class="tag" style="--percent-delay: 0.08">Google Cloud Platform</div>
+            <div class="tag" style="--percent-delay: 0.124">Flutter</div>
+            <div class="tag" style="--percent-delay: 0.075">CSS</div>
+            <div class="tag" style="--percent-delay: 0.078">Bootstrap</div>
+            <div class="tag" style="--percent-delay: 0.082">Tailwind</div>
+            <div class="tag" style="--percent-delay: 0.07">HTML</div>
+            <div class="tag" style="--percent-delay: 0.038">C#</div>
+            <div class="tag" style="--percent-delay: 0.12">.NET</div>
+            <div class="tag" style="--percent-delay: 0.06">Firebase</div>
+            <div class="tag" style="--percent-delay: 0.068">jQuery</div>
+            <div class="tag" style="--percent-delay: 0.11">Git</div>
+            <div class="tag" style="--percent-delay: 0.10">Linux</div>
+
+
+        
+        </div>
+
     </div>
+
 
     <h1 id="projects-header">Projects Showcase</h1>
 
-    <div id="projects" style="" class="project">
+    <div id="projects" class="project">
 
         <div class="text-2xl pt-8 pb-4">Rubik's Cube Art Generator</div>
 
@@ -255,11 +272,11 @@
                 A browser application written in Svelte to convert an image to Rubik's Cube art, drawing an image only using colors from the Rubik's cube.
             </p>
 
-            <a href="/work/rubiks">Read More</a>
+            <a href="/work/rubiks" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
         </div>
     </div>
 
-    <div id="projects1" style="" class="project">
+    <div id="projects1" class="project">
 
         <div class="text-2xl pt-8 pb-4">Loyalty Points App</div>
         <div class="min-h-[500px] mx-auto aspect-video max-w-5xl w-full relative"
@@ -279,7 +296,7 @@
 
     </div>
 
-    <div id="projects2" style="" class="project">
+    <div id="projects2" class="project">
         <div class="text-2xl pt-8 pb-4">Facebook Instant Game</div>
 
         <div class="min-h-[500px] mx-auto aspect-video max-w-5xl w-full relative"
@@ -403,13 +420,34 @@
     }
 
     .code-wrapper code {
-        font-family: "Major Mono Display", Consolas, "Courier New", monospace;
-        text-transform: lowercase;
-        font-size: 11px;
-        color: var(--code-color);
         transition: color var(--transition-duration);
         user-select: none;
+
+        line-break: anywhere;
+        font-family: "Victor Mono", Consolas, "Courier New", monospace;
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 10px;
+        line-height: 12px;
+        animation-name: fade-in-out;
     }
+    .code-wrapper code:first-child {
+        padding-top: 42px;
+    }
+
+    @keyframes fade-in-out {
+        from { opacity: 0}
+        25%, to { opacity: 1}
+
+        from, to { color: var(--code-color)}
+
+/* also need a light mode version
+        from, 40% { color: var(--code-color); }
+        65% { color: hsl(120, 80%, 8%); }
+        to { color: var(--code-color);}
+*/
+    }
+    
     #percent {
         bottom: 0;
         width: 100vw;
@@ -430,79 +468,14 @@
         height: 4px;
         position: fixed;
     }
-    #anitext {
-        width: 100vw;
-        background: transparent;
-        z-index: 10;
-        font-size: var(--fontsize);
-    }
     #wrapper p {
         font-size: var(--fontsize);
-    }
-
-    /* PICTURE */
-    /* animation */
-    @keyframes picture {
-    from { transform: translateY(calc(1 * var(--picturesize)))}
-    10% { transform: translateY(calc(0 * var(--picturesize)))}
-    15% { transform: translateY(calc(0 * var(--picturesize)))}
-    25% { transform: translateY(calc(-1 * var(--picturesize)))}
-    30% { transform: translateY(calc(-1 * var(--picturesize)))}
-    35% { transform: translateY(calc(-2 * var(--picturesize)))}
-    40% { transform: translateY(calc(-2 * var(--picturesize)))}
-    45% { transform: translateY(calc(-3 * var(--picturesize)))}
-    55% { transform: translateY(calc(-3 * var(--picturesize)))}
-    60% { transform: translateY(calc(-4 * var(--picturesize)))}
-    65% { transform: translateY(calc(-4 * var(--picturesize)))}
-    70% { transform: translateY(calc(-5 * var(--picturesize)))}
-    to { transform: translateY(calc(-5 * var(--picturesize)))}
-    }
-    .picture {
-        animation-name: picture;
-        /* animation-timing-function: linear; */
-        animation-timing-function: ease-in-out;
     }
 
     @keyframes picture_wrapper {
     from, 70% { transform: translateY(0)}
     73%, to { transform: translateY(-110vh)}
     }
-    #picture_wrapper {
-        animation-name: picture_wrapper;
-        animation-timing-function: ease-in;
-    }
-
-    /* styles */
-    #picture_wrapper {
-        height: var(--picturesize);
-        width: 100vw;
-        box-sizing: border-box;
-        overflow: hidden;
-        z-index: 9;
-        position: fixed;
-        /* top: max(
-calc(50vh - (var(--scroll) * 1px)),
-0vh
-calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
-);*/
-        top: 0vh;
-    }
-    .picture {
-        overflow: hidden;
-        height: var(--picturesize);
-        width: 100%;
-        font-size: var(--fontsize);
-        background: transparent;
-    }
-    .picture .img {
-        aspect-ratio: 1;
-        width: 100%;
-        height: var(--picturesize);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-
 
     /* fly by texts */
     .flyby {
@@ -574,7 +547,6 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
         to { transform: translateY(0)}
     }
     #tags {
-        margin-top: 20vh;
         animation-name: tags;
         text-align: center;
     }
@@ -631,15 +603,21 @@ calc(1 * var(--headerpadding) + calc(var(--fontsize) * var(--lineheight)))
     }
     @keyframes projects {
     from, 63% { top: 100vh }
-    to, 72% { top: 0vh }
+    72% { top: 0}
+    to, 81% { top: -20vh}
+    /* to, 72% { top: 0vh } */
     }
     @keyframes projects1 {
     from, 72% { top: 100vh }
-    to, 81% { top: 0vh }
+    81% { top: 0vh}
+    to, 90% { top: -20vh}
+    /* to, 81% { top: 0vh }*/
     }
     @keyframes projects2 {
     from, 81% { top: 100vh }
-    to, 90% { top: 0vh }
+    90% { top: 0}
+    to, 99% { top: -20vh}
+    /* to, 90% { top: 0vh } */
     }
 
     .tag {
