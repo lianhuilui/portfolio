@@ -1,9 +1,24 @@
 <script>
 import { page } from "$app/stores"
+import { browser } from '$app/environment'
+
+function toggleTheme() {
+    if (browser && document) {
+        let html = document.getElementsByTagName('html')[0]
+        if (html.hasAttribute('dark')) {
+            html.removeAttribute('dark')
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('dark', 'true')
+            localStorage.setItem('theme', 'dark');
+        }
+
+    }
+}
 </script>
 
-<nav class="max-w-5xl mx-auto bg-[#fff]">
-    <ul class="">
+<nav class="w-full mx-auto bg-[#fff]">
+    <ul class="w-full">
         <li class:active={$page.route.id == '/'}>
             <a href="/">
                 <iconify-icon icon="ph:house-light" class="sm:hidden text-3xl align-middle"/>
@@ -28,6 +43,18 @@ import { page } from "$app/stores"
                 </span>
             </a>
         </li>
+        <li class="hidden sm:inline flex-grow">
+        </li>
+        <li>
+            <button aria-label="Toggle Theme" on:click={toggleTheme}>
+                <span class="theme-light-button">
+                    <iconify-icon icon="ph:sun-light" class="text-3xl align-middle"/>
+                </span>
+                <span class="theme-dark-button">
+                    <iconify-icon icon="ph:moon-light" class="text-3xl align-middle"/>
+                </span>
+            </button>
+        </li>
     </ul>
 </nav>
 
@@ -39,17 +66,15 @@ import { page } from "$app/stores"
     }
     nav ul {
     /* @apply max-sm:flex-col sm:flex;*/
-        @apply flex w-full sm:w-fit justify-around;
+        @apply flex w-full;
         @apply m-0;
     }
     li {
         list-style: none;
-        @apply w-full;
+        @apply w-full sm:w-fit;
     }
-    ul li a {
+    ul li a, ul li button {
         @apply w-full text-center;
-    }
-    a {
         display: inline-block;
         @apply px-6;
         @apply py-4;
@@ -59,7 +84,13 @@ import { page } from "$app/stores"
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     }
     li.active {
-        border-bottom: solid #000000 6px;
+        border-bottom: solid var(--text-color) 6px;
+    }
+
+    nav {
+        position: absolute;
+        z-index: 3000;
+        @apply w-full;
     }
 
 </style>

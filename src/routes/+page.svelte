@@ -1,15 +1,11 @@
 <script>
     import {onMount} from 'svelte'
     import 'iconify-icon'
-    import { browser } from '$app/environment'
-    import { page } from "$app/stores"
 
     let scroll = 0;
     let height = 0;
     let oHeight = 0;
     let h = 0;
-
-    let light = false;
 
     let code = '';
 
@@ -35,21 +31,6 @@
         }
     })
 
-    function toggleTheme() {
-        if (browser && document) {
-            let html = document.getElementsByTagName('html')[0]
-            if (html.hasAttribute('dark')) {
-                light = true
-                html.removeAttribute('dark')
-                localStorage.setItem('theme', 'light');
-            } else {
-                light = false
-                html.setAttribute('dark', 'true')
-                localStorage.setItem('theme', 'dark');
-            }
-
-        }
-    }
 
 </script>
 
@@ -57,9 +38,9 @@
     bind:outerHeight={oHeight}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; transition: background-color var(--transition-duration); background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
 
-    <nav style="position: fixed; left: 0; width: 100vw" class="flex justify-between">
+    <nav style="position: fixed; left: 0; width: 100vw" class="hidden flex justify-between">
         <a href="/">
             Home
         </a>
@@ -69,13 +50,6 @@
         <a href="/contact">
             Contact
         </a>
-        <button on:click={toggleTheme}>
-            {#if light}
-                <iconify-icon icon="mdi:lightbulb"/> Dark Mode
-            {:else}
-                <iconify-icon icon="mdi:lightbulb-on"/> Light Mode
-            {/if}
-        </button>
     </nav>
 
     <div id="wwrapper">
@@ -153,7 +127,7 @@
     </div>
 
     <div style="z-index: 120; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
-        <div style="border-top: 2px solid var(--text-color); transition: background-color var(--transition-duration); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center;">
+        <div style="border-top: 2px solid var(--text-color); background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center;">
             <div class="flex flex-col h-full pt-4">
 
                 <div class="text-2xl pt-8 pb-4 hidden">
@@ -163,26 +137,26 @@
 
                 <div class="px-4 md:px-0 grid grid-cols-2 md:grid-cols-4 mx-auto h-full gap-4 content-center w-full max-w-[960px]">
 
-                    <a href="/work" class="hover:bg-green-500 block py-4" style="transition: background-color 0.2s">
+                    <a href="/work" class="hover:bg-green-500 block py-4" style="">
                         <iconify-icon icon="ph:arrow-square-out-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">
                             more projects
                         </span>
                     </a> 
 
-                    <a href="/contact" class="hover:bg-red-500 block py-4" style="transition: background-color 0.2s">
+                    <a href="/contact" class="hover:bg-red-500 block py-4" style="">
                         <!-- <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon> -->
                         <iconify-icon icon="ph:envelope-simple-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">contact me</span>
                     </a>
 
-                    <a href="https://linkedin.com/in/heinzawoo" class="block hover:bg-blue-500 py-4" target="_blank" style="transition: background-color 0.2s">
+                    <a href="https://linkedin.com/in/heinzawoo" class="block hover:bg-blue-500 py-4" target="_blank" style="">
                         <!--<iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>-->
                         <iconify-icon icon="ph:linkedin-logo-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">linkedin</span>
                     </a>
 
-                    <a href="/resume" class="block hover:bg-yellow-500 py-4" style="transition: background-color 0.2s">
+                    <a href="#" class="block hover:bg-yellow-600 py-4" style="">
                         <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">résumé</span>
                     </a>
@@ -320,7 +294,6 @@
     nav {
         background-color: var(--bg-color);
         color: var(--text-color);
-        transition: background-color var(--transition-duration), color var(--transition-duration);
     }
 
     @media (max-width: 320px) {
@@ -420,7 +393,6 @@
     }
 
     .code-wrapper code {
-        transition: color var(--transition-duration);
         user-select: none;
 
         line-break: anywhere;
@@ -585,21 +557,18 @@
       animation-name: projects;
       animation-timing-function: linear;
       text-align: center;
-      transition: background-color var(--transition-duration);
     }
     #projects1 {
       animation-name: projects1;
       animation-timing-function: linear;
       border-top: 2px solid var(--text-color);
       text-align: center;
-      transition: background-color var(--transition-duration);
     }
     #projects2 {
       animation-name: projects2;
       animation-timing-function: linear;
       border-top: 2px solid var(--text-color);
       text-align: center;
-      transition: background-color var(--transition-duration);
     }
     @keyframes projects {
     from, 63% { top: 100vh }

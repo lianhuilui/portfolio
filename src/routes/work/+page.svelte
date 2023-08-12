@@ -61,8 +61,10 @@
     }
     h1,
     h2 {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+
+        /*font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;*/
     }
     .tag {
         @apply rounded-sm px-1 border-[1px] border-gray-400 border-solid bg-gray-300;

@@ -4,7 +4,6 @@
     import { fly } from 'svelte/transition'
     import Nav from '../components/nav.svelte'
     import { browser } from '$app/environment'
-    import { page } from "$app/stores"
 
     let y: number;
     $: sticky = y > 200
@@ -32,7 +31,7 @@
 
 <Nav/>
 
-<main class="mx-auto max-w-5xl">
+<main class="mx-auto max-w-5xl pt-20" style="">
     <slot />
 </main>
 
@@ -80,12 +79,27 @@ main {
     --bg-color: white;
     --text-color: black;
     --code-color: #ddd;
-    --transition-duration: 0.5s;
+}
+:global(*) {
+    --transition-duration: 0.6s;
+    transition: background-color var(--transition-duration), color var(--transition-duration) !important;
 }
 :global(html:not(.style-scope)[dark]) {
     --bg-color: black;
     --text-color: white;
     --code-color: #222;
+}
+:global(html .theme-light-button) {
+    display: inline;
+}
+:global(html .theme-dark-button) {
+    display: none;
+}
+:global(html:not(.style-scope)[dark] .theme-light-button) {
+    display: none;
+}
+:global(html:not(.style-scope)[dark] .theme-dark-button) {
+    display: inline;
 }
 
 </style>

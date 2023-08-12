@@ -15,6 +15,6 @@
     <li>Multiple color pallettes</li>
 </ul>
      
-<a href="https://lianhuilui.github.io/rubiksim/" class="py-2 px-4 rounded-md border-[1px] border-black" target="_blank">
+<a href="https://lianhuilui.github.io/rubiksim/" class="block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">
     Try the App
 </a>
