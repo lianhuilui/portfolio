@@ -6,6 +6,10 @@ Using svelte-kit to build this site.
 
 # Todo
 * blur some (copyrighted or out of date or irrelevant) texts in thumbnails of portfolio
+* combine shopify projects into one, write a page for shopify
+* write a page for each projects (to stay consistent)
+* add portfolio project into list of projects. (very meta)
+* open source the portfolio project
 
 # Feedback from wifey
 * add white border around the bg

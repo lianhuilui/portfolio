@@ -230,7 +230,7 @@
 
             <div class="john w-full h-full"
                 style={`
-                        background-image: url(/john0.jpg);
+                        background-image: url(/john.jpg);
                 `}>
             </div>
             <div class="john w-full h-full"
@@ -266,6 +266,8 @@
             <p style="max-width: 800px;" class="mx-auto p-4">
                 A Progressive Web App written in Svelte + SvelteKit to boost customer loyalty of a cafe. Customers are able to collect points, top up cash cards, get free drinks, and more.
             </p>
+
+            <a href="/work/hrcpoints" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
         </div>
 
     </div>
@@ -294,6 +296,7 @@
     nav {
         background-color: var(--bg-color);
         color: var(--text-color);
+        transition: color var(--transition-duration), background-color var(--transition-duration);
     }
 
     @media (max-width: 320px) {
@@ -350,6 +353,8 @@
         animation-iteration-count: 1;
         animation-fill-mode: both;
         animation-duration: 1s;
+
+        transition: color var(--transition-duration), background-color var(--transition-duration);
     }
 
     #wwrapper {
@@ -374,6 +379,7 @@
         /*height: calc(var(--lineheight) * var(--fontsize));*/
         overflow-y: hidden;
         background: var(--bg-color);
+        transition: color var(--transition-duration), background-color var(--transition-duration);
     }
     #wrapper { animation-name: wrapper; }
     @keyframes wrapper {

@@ -2,7 +2,7 @@
     Loyalty / Membership App: House Rules Club
 </h1>
 
-<img class="w-full" src="/src/assets/hrcpoints.jpeg"/>
+<img class="w-full" src="/src/assets/cafe2.jpg"/>
 
 <h2>Intro</h2>
 

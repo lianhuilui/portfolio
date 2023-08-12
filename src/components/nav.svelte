@@ -62,7 +62,8 @@ function toggleTheme() {
     nav {
         @apply border-0 border-b-[1px] border-slate-400 border-solid;
         @apply text-2xl;
-        background-color: var(--bg-color)
+        background-color: var(--bg-color);
+        transition: color var(--transition-duration), background-color var(--transition-duration);
     }
     nav ul {
     /* @apply max-sm:flex-col sm:flex;*/
@@ -80,8 +81,7 @@ function toggleTheme() {
         @apply py-4;
         text-decoration: none;
         color: var(--text-color);
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        /*font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;*/
     }
     li.active {
         border-bottom: solid var(--text-color) 6px;

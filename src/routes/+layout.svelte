@@ -43,6 +43,7 @@
 :root {
     background: var(--bg-color);
     color: var(--text-color);
+    transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 footer {
     @apply border-0 border-t-[1px] border-solid border-slate-400;
@@ -79,10 +80,8 @@ main {
     --bg-color: white;
     --text-color: black;
     --code-color: #ddd;
-}
-:global(*) {
-    --transition-duration: 0.6s;
-    transition: background-color var(--transition-duration), color var(--transition-duration) !important;
+    --transition-duration: 500ms;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 :global(html:not(.style-scope)[dark]) {
     --bg-color: black;
