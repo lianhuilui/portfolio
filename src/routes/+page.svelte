@@ -156,7 +156,7 @@
                         <span class="block text-2xl align-middle">linkedin</span>
                     </a>
 
-                    <a href="#" class="block hover:bg-yellow-600 py-4" style="">
+                    <a href="#" class="block hover:bg-yellow-500 py-4" style="">
                         <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">résumé</span>
                     </a>
