@@ -59,16 +59,19 @@
                 <p>I'm an experienced 
                     <span class="highlight" style="--percent-delay: 0.12; --highlight-text-color: white; --highlight-text-color: black;">full-stack</span> web developer.</p>
 
-                <p>I enjoy building backends with
-                    <span class="highlight" style="--percent-delay: 0.21; --highlight-text-color: white; --highlight-color: var(--django-color);">Django</span>,
-                    <span class="highlight" style="--percent-delay: 0.23; --highlight-text-color: white; --highlight-color: var(--nodejs-color);">NodeJS</span>, and
-                    <span class="highlight" style="--percent-delay: 0.25; --highlight-text-color: white; --highlight-color: var(--svelte-color);">SvelteKit</span>
+                <p>I enjoy building backends</p>
+
+                <p>
+                    with
+                    <span class="highlight" style="--percent-delay: 0.25; --highlight-text-color: white; --highlight-color: var(--django-color);">Django</span>,
+                    <span class="highlight" style="--percent-delay: 0.27; --highlight-text-color: white; --highlight-color: var(--nodejs-color);">NodeJS</span>, and
+                    <span class="highlight" style="--percent-delay: 0.29; --highlight-text-color: white; --highlight-color: var(--svelte-color);">SvelteKit</span>
                 </p>
 
                 <p>and user interfaces with 
 
-                    <span class="highlight" style="--percent-delay: 0.31; --highlight-text-color: white; --highlight-color: var(--tailwind-color);">Tailwind</span> and
-                    <span class="highlight" style="--percent-delay: 0.33; --highlight-text-color: white; --highlight-color: var(--svelte-color);">Svelte.</span>
+                    <span class="highlight" style="--percent-delay: 0.34; --highlight-text-color: white; --highlight-color: var(--tailwind-color);">Tailwind</span> and
+                    <span class="highlight" style="--percent-delay: 0.36; --highlight-text-color: white; --highlight-color: var(--svelte-color);">Svelte.</span>
 
                 </p>
 
@@ -180,7 +183,7 @@
     <div id="percent">
     </div>
 
-        <div id="tags" style="position: fixed; z-index: 100; height: 100vh;width: 100vw;" class="grid grid-cols-1 content-center">
+        <div id="tags" style="position: fixed; z-index: 100; height: 100vh;width: 100vw;" class="px-4 grid grid-cols-1 content-center">
 
         <div>
             <h2>Skills:</h2>
@@ -221,6 +224,23 @@
 
     <div id="projects" class="project">
 
+        <div class="text-2xl pt-8 pb-4">Loyalty Points App</div>
+        <div class="min-h-[500px] mx-auto aspect-video max-w-5xl w-full relative"
+            style={`background-image: url(/hrcpoints.jpg); background-size: cover; background-position: center`}
+        >
+        </div>
+        <div>
+            <p style="max-width: 800px;" class="mx-auto p-4">
+                A Progressive Web App written in Svelte + SvelteKit to boost customer loyalty of a cafe. Customers are able to collect points, top up cash cards, get free drinks, and more.
+            </p>
+
+            <a href="/work/hrcpoints" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+        </div>
+
+    </div>
+
+    <div id="projects1" class="project">
+
         <div class="text-2xl pt-8 pb-4">Rubik's Cube Art Generator</div>
 
         <div id="rubiks" class="min-h-[500px] mx-auto aspect-video pausable max-w-5xl w-full relative"
@@ -250,27 +270,6 @@
         </div>
     </div>
 
-    <div id="projects1" class="project">
-
-        <div class="text-2xl pt-8 pb-4">Loyalty Points App</div>
-        <div class="min-h-[500px] mx-auto aspect-video max-w-5xl w-full relative"
-            style={`background-image: url(/cafe2.jpg); background-size: cover; background-position: center`}
-        >
-            <span style="position: absolute; bottom: 0; left: 0;  background: var(--bg-color); opacity: 0.9" class="text-xs w-full text-center py-1">
-                Stock Photo by Los Muertos Crew
-                <br>
-                https://www.pexels.com/photo/photo-of-woman-busy-browsing-through-her-cellphone-7487529/
-            </span>
-        </div>
-        <div>
-            <p style="max-width: 800px;" class="mx-auto p-4">
-                A Progressive Web App written in Svelte + SvelteKit to boost customer loyalty of a cafe. Customers are able to collect points, top up cash cards, get free drinks, and more.
-            </p>
-
-            <a href="/work/hrcpoints" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
-        </div>
-
-    </div>
 
     <div id="projects2" class="project">
         <div class="text-2xl pt-8 pb-4">Facebook Instant Game</div>
@@ -299,31 +298,31 @@
         transition: color var(--transition-duration), background-color var(--transition-duration);
     }
 
-    @media (max-width: 320px) {
-        :global(:root) {
-            --fontsize: 10px;
-            --frame-border: 2px;
-        }
-    }
-    @media (min-width: 320px) {
-        :global(:root) {
-            --fontsize: 12px;
-            --frame-border: 2px;
-        }
-    }
-    @media (min-width: 420px) {
+    @media (max-width: 380px) {
         :global(:root) {
             --fontsize: 16px;
+            --frame-border: 2px;
+        }
+    }
+    @media (min-width: 380px) {
+        :global(:root) {
+            --fontsize: 18px;
+            --frame-border: 2px;
+        }
+    }
+    @media (min-width: 440px) {
+        :global(:root) {
+            --fontsize: 22px;
         }
     }
     @media (min-width: 550px) {
         :global(:root) {
-            --fontsize: 20px;
+            --fontsize: 22px;
         }
     }
     @media (min-width: 660px) {
         :global(:root) {
-            --fontsize: 24px;
+            --fontsize: 30px;
             --frame-border: 4px;
         }
     }
@@ -353,8 +352,6 @@
         animation-iteration-count: 1;
         animation-fill-mode: both;
         animation-duration: 1s;
-
-        transition: color var(--transition-duration), background-color var(--transition-duration);
     }
 
     #wwrapper {
@@ -386,8 +383,10 @@
     from{ opacity: 0; height: 0px; }
     2%,8%  { opacity: 1; height: calc(1* var(--lineheight) * var(--fontsize))}
     10%, 15%  { opacity: 1; height: calc(2* var(--lineheight) * var(--fontsize))}
-    20%, 25%  { opacity: 1; height: calc(3* var(--lineheight) * var(--fontsize))}
-    30%, 40%  { opacity: 1; height: calc(4* var(--lineheight) * var(--fontsize))}
+    20%, 23%  { opacity: 1; height: calc(3* var(--lineheight) * var(--fontsize))}
+
+    27%, 30% { opacity: 1; height: calc(4* var(--lineheight) * var(--fontsize))}
+    33%, 40%  { opacity: 1; height: calc(5* var(--lineheight) * var(--fontsize))}
     42% { opacity: 0; height: calc(0* var(--lineheight) * var(--fontsize))}
     to  { opacity: 0; height: calc(0* var(--lineheight) * var(--fontsize))}
     }

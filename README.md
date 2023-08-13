@@ -10,6 +10,7 @@ Using svelte-kit to build this site.
 * write a page for each projects (to stay consistent)
 * add portfolio project into list of projects. (very meta)
 * open source the portfolio project
+* favicon
 
 # Feedback from wifey
 * add white border around the bg

@@ -2,32 +2,47 @@
     Loyalty / Membership App: House Rules Club
 </h1>
 
-<img class="w-full" src="/src/assets/cafe2.jpg"/>
+<img class="w-full" src="/src/assets/hrcpoints.jpg"/>
 
 <h2>Intro</h2>
 
 <p>
-    The purpose of this app is to allow customers of a board game cafe to collect and use points, credits, or other units such as a free drink or game hour. I had full control over the decisions of which techstack to use, where to host, and any other technical decisions.
+    The purpose of this app is to allow customers of a board game cafe to collect and use points, credits, or other units such as a free drink or game hour.
 </p>
 
+<h3>Features</h3>
+
+<ul style="padding-left: 18px; list-style-type: circle;">
+    <li>Create any number of card types such as Cash, Drink, Hours, Points, etc</li>
+    <li>Card balances must expire in a First-In-First-Out manner</li>
+    <li>Must be convenient to auto-update the app in the future</li>
+</ul>
+
+
 <h2>Tech Stack</h2>
+
+<p>
+    I decided to build this app as a "Progressive Web Application" PWA, so that we could roll out new features, fix bugs, or change the UI as needed. Another benefit of utilizing PWA technologies was that was it was cross platform. Admin users could also access the same app using a browser on a laptop or tablet, by going to a protected URL.
+</p>
 
 <h3>Framework</h3>
 
 <p>
-    I decided to build this app as a "Progressive Web Application" PWA, so that we could roll out new features, fix bugs, or change the UI without forcing users to update the app. Another benefit of utilizing PWA technologies was that was it was cross platform between iPhone and Android users. Admin users could also access the same app using a browser on a laptop or tablet, by going to a protected URL.
+    I decided to use Svelte for the performance, the superior developer experience, and because I wanted to try SvelteKit. I first built the UI using Svelte, and the separate API using ExpressJS, just in case SvelteKit had limitations. After some tests, it turned out to be the best backend framework for Svelte. Who knew?
+</p>
+
+<h4>Some Hiccups</h4>
+
+<p>
+    PWA's are not without its own problems. Firstly, on iOS, the "Add to Home screen" option - the way PWA's are installed - is only available on Safari, whereas Android users may use Chrome other browsers to install the app. That meant, I had to test on both iOS Safari and Android Chrome Browsers. As a web developer, this is far less than a typical web application.
 </p>
 
 <p>
-    The using Svelte as the front-end framework. Naturally, SvelteKit was the obvious choice for the backend. It wasn't so obvious when I started this project. In the beginning, I had written API endpoints in NodeJS + Express, and only used Svelte for the frontend.
+Secondly, Svelte generates javascript that uses some modern Javascript features. That means some features were not available on older browsers that do not support the newer APIs and javascript features. I ran into this problem when I was testing the app on the cafe's POS tablet. It was an Android tablet running a very old version of Google Chrome, and there was no way to update it.
 </p>
 
 <p>
-    PWA's are not without its own problems. Firstly, on iOS, the "Add to Home screen" option - the way PWA's are installed - is only available on Safari, whereas Android users may use Chrome other browsers to install the app. That means some code may not work on both platforms, or even older browsers that do not support the newer APIs and javascript features. I ran into this problem when I was testing the app on the cafe's POS tablet. It was an Android tablet running an older version of Google Chrome. SvelteKit did not support this older version of Chrome and some javascript enhancements did not work as expected.
-</p>
-
-<p>
-    Another problem I ran into was that a customer did not have the "Add to Homescreen." They ended up simply using the browser without installing.
+    Another minor problem I ran into was that one customer did not have the "Add to Homescreen." They ended up simply using the browser without installing.
 </p>
 
 <h3>Authentication</h3>

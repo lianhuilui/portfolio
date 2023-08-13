@@ -8,6 +8,8 @@
     let y: number;
     $: sticky = y > 200
 
+
+
     if (browser) {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             setTimeout(() => {
@@ -20,6 +22,13 @@
         }
     }
 </script>
+
+<svelte:head>
+    <meta name="author" content="Lian" />
+    <meta name="og:title" content="Lian's Portofolio" />
+    <meta name="og:image" content="/thissite.png" />
+    <meta name="og:description" content="Lian is a full stack web developer. This is his portofolio site." />
+</svelte:head>
 
 <svelte:window bind:scrollY={y}></svelte:window>
 
@@ -37,7 +46,7 @@
 
 <footer class="text-center">&copy; Copyright 2023</footer>
 
-<style lang="postcss">
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400&family=Pacifico&family=Victor+Mono:wght@100&family=Major+Mono+Display&display=swap');
 
 :root {
@@ -64,7 +73,10 @@ main {
     @apply text-4xl py-3;
 }
 :global(h3) {
-    @apply text-3xl py-3;
+    @apply text-3xl py-2;
+}
+:global(h4) {
+    @apply text-2xl py-1;
 }
 
 :global(:root) {

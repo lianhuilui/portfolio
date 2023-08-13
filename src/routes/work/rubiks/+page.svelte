@@ -2,38 +2,46 @@
     .styles button {
         @apply my-2 py-2 px-4 border-[1px] border-gray-400 rounded-md;
     }
+
+    button.selected {
+        font-weight: bold;
+        @apply bg-yellow-500;
+    }
 </style>
 
 <script>
     let src = "/john.jpg"
     let desc = "Original Image"
 
+    let selected = 0
+
 </script>
 
 <h1>Rubik Art Generator</h1>
 
-<img class="w-full" src={src} />
+<img class="w-full" src={src}
+    alt="John Wick after running through Rubik's Cube Art Generator"/>
 
 <p class="text-center">{desc}</p>
 
 <div class="styles flex mx-auto w-fit">
 
-    <button on:click={() => {src = "/john.jpg"; desc = "Original Image"}}>
+    <button class:selected={selected == 0} on:click={() => {selected = 0; src = "/john.jpg"; desc = "Original Image"}}>
         Source Image
     </button>
-    <button on:click={() => {src = "/john0.png"; desc = "Floyd-Steinberg dithering, All 6 colors"}}>
+    <button class:selected={selected == 1} on:click={() => {selected = 1; src = "/john0.png"; desc = "Floyd-Steinberg dithering, All 6 colors"}}>
         Style 1
     </button>
 
-    <button on:click={() => {src = "/john1.png"; desc = "Floyd-Steinberg, no green"}}>
+    <button class:selected={selected == 2} on:click={() => {selected = 2; src = "/john1.png"; desc = "Floyd-Steinberg, no green"}}>
         Style 2
     </button>
 
-    <button on:click={() => {src = "/john2.png"; desc = "Patterned dithering, nearest gray-value"}}>
+    <button class:selected={selected == 3} on:click={() => {selected = 3; src = "/john2.png"; desc = "Patterned dithering, nearest gray-value"}}>
         Style 3
     </button>
 
-    <button on:click={() => {src = "/john3.png"; desc = "Patterned dithering, nearest gray-value, blue and white"}}>
+    <button class:selected={selected == 4} on:click={() => {selected = 4; src = "/john3.png"; desc = "Patterned dithering, nearest gray-value, blue and white"}}>
         Style 4
     </button>
 
