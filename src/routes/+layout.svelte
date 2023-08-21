@@ -105,7 +105,7 @@ main {
 :global(html) {
     --bg-color: white;
     --text-color: black;
-    --code-color: #ddd;
+    --code-color: #eee;
     --transition-duration: 500ms;
     transition: color var(--transition-duration), background-color var(--transition-duration);
 }

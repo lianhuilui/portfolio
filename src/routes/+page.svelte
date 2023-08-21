@@ -31,6 +31,13 @@
         }
     })
 
+    function next() {
+        console.log('next')
+    }
+
+    function prev() {
+        console.log('prev')
+    }
 
 </script>
 
@@ -38,7 +45,7 @@
     bind:outerHeight={oHeight}
 />
 
-<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: var(--bg-color); width: 100vw; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
+<div bind:clientHeight={h} style={`--percent: ${p ? p : 0}; --scroll: ${scroll ? scroll : 0}; --percent-delay: 0; background: var(--bg-color); width: 100%; position: absolute; top: 0; overflow: hidden; left: 0; height: 1000vh; z-index: 120;`}>
 
     <nav style="position: fixed; left: 0; width: 100vw" class="hidden flex justify-between">
         <a href="/">
@@ -51,6 +58,14 @@
             Contact
         </a>
     </nav>
+
+    <div style="display: none; color: white; bottom: 0; left: 50%; font-size: 50px; position: fixed; z-index: 9999">
+        <div style="margin-left: -50%; background: red; width: 100%; z-index: 9999">
+            <button on:click={prev}>Prev</button>
+            /
+            <button on:click={next}>Next</button>
+        </div>
+    </div>
 
     <div id="wwrapper">
         <div id="wrapper">
@@ -90,43 +105,6 @@
         <div class="code">
             <code class="" aria-hidden="true">{code}</code>
         </div>
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 450vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 500vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 550vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 600vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 650vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 700vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 750vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 800vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="padding-top: 0vh; position: absolute; top: 850vh; width: 100vw;" class="flyby text-center">
-    </div>
-
-    <div style="z-index: 30; padding-9op: 0vh; position: absolute; top: 650vh; width: auto" class="flyby text-center">
-
-        <div class="hidden" style=" background: var(--bg-color); top: 0; position: fixed; height: 100vh; width: 100vw; text-align: center; z-index: 1000;">
-            <div class=""></div>
-
-        </div>
-
-
     </div>
 
     <div style="z-index: 120; padding-top: 0vh; position: absolute; top: 900vh; width: auto" class="flyby text-center">
@@ -222,13 +200,15 @@
         <div class="min-h-[500px] mx-auto aspect-video max-w-5xl w-full relative"
             style={`background-image: url(/hrcpoints.jpg); background-size: cover; background-position: center`}
         >
-        </div>
-        <div>
-            <p style="max-width: 800px;" class="mx-auto p-4">
-                A Progressive Web App written in Svelte + SvelteKit to boost customer loyalty of a cafe. Customers are able to collect points, top up cash cards, get free drinks, and more.
-            </p>
 
-            <a href="/work/hrcpoints" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+            <div class="description w-full h-full flex flex-col justify-center">
+                <p style="max-width: 800px; background: var(--bg-color);" class="mx-auto p-4">
+                    A Progressive Web App written in Svelte + SvelteKit to boost customer loyalty of a cafe. Customers are able to collect points, top up cash cards, get free drinks, and more.
+
+                    <a href="/work/hrcpoints" class="mt-2 mx-auto w-fit block border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+                </p>
+
+            </div>
         </div>
 
     </div>
@@ -247,21 +227,23 @@
                         background-image: url(/john.jpg);
                 `}>
             </div>
+
             <div class="john w-full h-full"
                 style={`
                         background-image: url(/john1.png);
                 `}>
             </div>
 
-        </div>
-
-        <div>
-            <p style="max-width: 800px;" class="mx-auto p-4">
+            <div class="description w-full h-full flex flex-col justify-center absolute">
+                <p style="max-width: 800px; background: var(--bg-color);" class="mx-auto p-4">
                 A browser application written in Svelte to convert an image to Rubik's Cube art, drawing an image only using colors from the Rubik's cube.
-            </p>
 
-            <a href="/work/rubiks" class="border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+                    <a href="/work/rubiks" class="mt-2 mx-auto w-fit block border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+                </p>
+            </div>
+
         </div>
+
     </div>
 
 
@@ -274,11 +256,14 @@
             <span style="position: absolute; bottom: 0; left: 0; background: var(--bg-color); opacity: 0.8" class="text-xs w-full text-center py-1">
                 Photo Source: Samsung Myanmar Facebook Page
             </span>
-        </div>
-        <div>
-            <p style="max-width: 800px;" class="mx-auto p-4">
-                A Facebook "Instant Game" where users can share what they will be in 10 years.
-            </p>
+
+            <div class="description w-full h-full flex flex-col justify-center">
+                <p style="max-width: 800px; background: var(--bg-color);" class="mx-auto p-4">
+                    A Facebook "Instant Game" where users can share what they will be in 10 years.
+
+                    <a href="/work/galaxy10mm" class="mt-2 mx-auto w-fit block border-gray-400 border-[1px] py-1 px-2 rounded-md">Read More</a>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -353,7 +338,7 @@
         animation-name: wwrapper;
         white-space: nowrap;
         padding: var(--headerpadding) var(--headerpadding-x);
-        background: transparent;
+        background: var(--bg-color);
         z-index: 10;
         position: fixed;
         width: auto;
@@ -391,15 +376,25 @@
       42%, to { opacity: 0}
     }
 
+    .code-wrapper {
+        overflow: hidden;
+        width: 100%;
+    }
     .code-wrapper code {
-        user-select: none;
+        width: 1200px;
+        margin: 0 auto;
 
-        line-break: anywhere;
-        font-family: "Victor Mono", Consolas, "Courier New", monospace;
-        text-transform: uppercase;
-        display: inline-block;
-        font-size: 10px;
-        line-height: 12px;
+        user-select: none;
+        /* line-break: anywhere; */
+        word-break: break-all;
+        text-align: center;
+         font-family: "Victor Mono", Consolas, "Courier New", monospace;
+        /* text-transform: uppercase; */
+        display: block;
+        /* font-size: 10px; */
+        /* line-height: 12px; */
+        font-size: 1rem;
+        line-height: 1.2rem;
         animation-name: fade-in-out;
     }
     .code-wrapper code:first-child {
@@ -408,7 +403,9 @@
 
     @keyframes fade-in-out {
         from { opacity: 0}
-        25%, to { opacity: 1}
+        25%, 50%  { opacity: 1}
+        
+        60%, to { opacity: 0 }
 
         from, to { color: var(--code-color)}
 
@@ -544,11 +541,16 @@
     to, 71% { top: 0vh }
     }
     .project {
+       @apply flex flex-col justify-center;
        background: var(--bg-color);
        position: fixed;
        z-index: 100;
        height: 100vh;
        width: 100vw;
+    }
+
+    .project .description p {
+        @apply shadow-[rgba(0,0,0,0.4)] shadow-xl;
     }
   
     #projects {

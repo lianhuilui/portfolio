@@ -50,7 +50,7 @@
 <h2>Introduction</h2>
 
 <p>
-    This is a passion project. I made it to aid in the design of art piece for my wall.
+    This is a passion project. I learned Svelte building this app. This could be used to aid in the design of a Rubik's Cube art piece.
 </p>
 
 <h3>Features</h3>
