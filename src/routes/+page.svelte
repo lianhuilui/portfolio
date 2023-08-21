@@ -138,7 +138,7 @@
 
                 <hr style="border-width: 2px; width: 20px; margin: 0 auto;">
 
-                <div class="px-4 md:px-0 grid grid-cols-2 md:grid-cols-4 mx-auto h-full gap-4 content-center w-full max-w-[960px]">
+                <div class="px-4 md:px-0 grid grid-cols-1 sm:grid-cols-3 mx-auto h-full gap-4 content-center w-full max-w-[960px]">
 
                     <a href="/work" class="hover:bg-green-500 block py-4" style="">
                         <iconify-icon icon="ph:arrow-square-out-light" class="text-5xl align-middle"></iconify-icon>
@@ -147,19 +147,13 @@
                         </span>
                     </a> 
 
-                    <a href="/contact" class="hover:bg-red-500 block py-4" style="">
+                    <a href="/contact" class="hover:bg-yellow-500 block py-4" style="">
                         <!-- <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon> -->
                         <iconify-icon icon="ph:envelope-simple-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">contact me</span>
                     </a>
 
-                    <a href="https://linkedin.com/in/heinzawoo" class="block hover:bg-blue-500 py-4" target="_blank" style="">
-                        <!--<iconify-icon icon="fa-brands:linkedin" class="text-5xl align-middle"></iconify-icon>-->
-                        <iconify-icon icon="ph:linkedin-logo-light" class="text-5xl align-middle"></iconify-icon>
-                        <span class="block text-2xl align-middle">linkedin</span>
-                    </a>
-
-                    <a href="#" class="block hover:bg-yellow-500 py-4" style="">
+                    <a href="#" class="block hover:bg-red-500 py-4" style="">
                         <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">résumé</span>
                     </a>
@@ -180,7 +174,7 @@
     <div id="percent-bar">
     </div>
 
-    <div id="percent">
+    <div id="percent" class="hidden">
     </div>
 
         <div id="tags" style="position: fixed; z-index: 100; height: 100vh;width: 100vw;" class="px-4 grid grid-cols-1 content-center">

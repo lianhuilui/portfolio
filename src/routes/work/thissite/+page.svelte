@@ -1,6 +1,6 @@
 <h2>This Site</h2>
 
-<p>This site is built using svelte and hosted for free on GitHub.</p>
+<p>This site is built using svelte and hosted on GitHub Pages.</p>
 
 <h3>UI</h3>
 

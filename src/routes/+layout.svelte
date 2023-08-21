@@ -6,9 +6,18 @@
     import { browser } from '$app/environment'
 
     let y: number;
-    $: sticky = y > 200
 
+    $: sticky = y > 200 && dir < 0.0
 
+    let old_y: number;
+
+    let dir = 0
+
+    $: {
+        console.log("dir: " + (y - old_y))
+        dir = (y-old_y)
+        old_y = y
+    }
 
     if (browser) {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -21,6 +30,7 @@
             }, 500)
         }
     }
+
 </script>
 
 <svelte:head>
@@ -30,10 +40,14 @@
     <meta name="og:description" content="Lian is a full stack web developer. This is his portofolio site." />
 </svelte:head>
 
-<svelte:window bind:scrollY={y}></svelte:window>
+<svelte:window
+    bind:scrollY={y}
+    on:scroll={(e) => {
+    }}
+></svelte:window>
 
 {#if sticky}
-<div class="w-full z-10" in:fly={{y: -100}} class:fixed={sticky}>
+<div class="w-full z-[3000]" in:fly={{y: -100}} class:fixed={sticky}>
     <Nav/>
 </div>
 {/if}
