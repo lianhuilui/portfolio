@@ -7,7 +7,7 @@
 
     let y: number;
 
-    $: sticky = y > 200 && dir < 0.0
+    $: sticky = y < 50 || dir < 0.0
 
     let old_y: number;
 
@@ -47,12 +47,10 @@
 ></svelte:window>
 
 {#if sticky}
-<div class="w-full z-[3000]" in:fly={{y: -100}} class:fixed={sticky}>
+<div class="w-full z-[200]" out:fly={{y: -100, duration: 1000}} in:fly={{y: -100}} class:fixed={sticky}>
     <Nav/>
 </div>
 {/if}
-
-<Nav/>
 
 <main class="mx-auto max-w-5xl pt-20" style="">
     <slot />

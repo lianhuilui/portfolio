@@ -1,32 +1,10 @@
 # Portfolio
 
-Using svelte-kit to build this site.
+Using svelte-kit as a SSG to build this site.
 * Turned on pre-render.
 * Using adapter-static.
 
 # Todo
-* write a page for each projects (to stay consistent)
-* open source the portfolio project
+* open source the portfolio project -> enable github pages
 * favicon
-
-# Feedback from wifey
-* add white border around the bg
-
-# Main sections headings..
- intro ->
-hi, my name is _____
-
-differentiate ->
-i'm a passionate **fullstack** web developer.
-i can work solo on a project, or vibe in a team.
-
-describe ->
-i make 
-
-i am -> adaptable
-     -> curious
-     -> detail-oriented
-i'm passionate about -> svelte
-                     -> 
-
-i'm expierence in -> (tags go here)
+* link DNS

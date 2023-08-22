@@ -50,7 +50,7 @@
 <h2>Introduction</h2>
 
 <p>
-    This is a passion project. I learned Svelte building this app. This could be used to aid in the design of a Rubik's Cube art piece.
+    This is a passion project. I built this in order to learn Svelte. This could be used to aid in the design of a Rubik's Cube art piece.
 </p>
 
 <h3>Features</h3>
@@ -58,12 +58,14 @@
 <ul style="padding-left: 18px; list-style-type: circle;">
     <li>Dithering Modes: Floyd-Steinberg, Patterned, or None</li>
     <li>Multiple color pallettes</li>
-    <li>Scale Image responsively</li>
-    <li>Calculate Number of Rubik's Cube needed</li>
-    <li>Performant</li>
+    <li>Performant, Live Updates</li>
+    <li>In-Browser Processing / No server code</li>
     <li>Screencast-mode: Live processing of application window or desktop screen</li>
 </ul>
      
-<a href="https://lianhuilui.github.io/rubiksim/" class="block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">
+<a href="https://github.com/lianhuilui/rubiksim.git" class="inline-block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">
+    Github Repo
+</a>
+<a href="https://lianhuilui.github.io/rubiksim/" class="inline-block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">
     Try the App
 </a>
