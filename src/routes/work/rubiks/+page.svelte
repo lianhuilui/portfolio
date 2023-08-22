@@ -64,6 +64,7 @@
 </ul>
      
 <a href="https://github.com/lianhuilui/rubiksim.git" class="inline-block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">
+    <iconify-icon icon="ph:github-logo-light" class="text-xl align-middle"/>
     Github Repo
 </a>
 <a href="https://lianhuilui.github.io/rubiksim/" class="inline-block w-fit py-2 px-4 rounded-md border-[1px] border-gray-400 my-2" target="_blank">

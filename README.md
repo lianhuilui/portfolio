@@ -1,15 +1,18 @@
 # Portfolio
 
-Using svelte-kit as a SSG to build this site.
+Source for my Portfolio site @ lianhuilui.github.io / heinzaw.dev
+
+# Note to self
+
+Using SvelteKit as a SSG to build static pages
+
 * Turned on pre-render.
 * Using adapter-static.
+* npm run build
 
-# Todo
-* open source the portfolio project -> enable github pages
-* favicon
-* link DNS
+## Build
 
-## Notes
-Deploying on Github Pages.
-* installed gh-pages package
-* added script "gh-pages": "npm run build && npx gh-pages -d build"
+Deploying on Github Pages
+
+* Build with `npm run build`
+* Copy contents of build dir to Profile repo (gh-pages branch)

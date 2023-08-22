@@ -394,7 +394,7 @@
         /* font-size: 10px; */
         /* line-height: 12px; */
         font-size: 1rem;
-        line-height: 1.2rem;
+        line-height: 1.8rem;
         animation-name: fade-in-out;
     }
     .code-wrapper code:first-child {
