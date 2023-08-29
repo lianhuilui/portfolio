@@ -1,5 +1,5 @@
 
-<div class="py-4 px-4">
+<div class="pt-4 pb-10 px-4">
     <div class="max-w-3xl mx-auto">
         <h2>
             Hi, there!
@@ -26,6 +26,7 @@
             </p>
         </div>
 
+        {#if false}
         <div>
             <h3>
                 <iconify-icon icon="ph:linkedin-logo-light" class="text-5xl align-middle"></iconify-icon>
@@ -38,6 +39,7 @@
                 </a>
             </p>
         </div>
+        {/if}
 
         <div>
             <h3>
@@ -52,21 +54,22 @@
             </p>
         </div>
 
-    </div>
-    </div>
-
-    <div class='mx-auto w-fit text-center'>
+    <div class=''>
         <h3>
             <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
             <span class="align-middle">Résumé</span>
         </h3>
 
         <p>
-            <a href="#" target="_blank">
-                Click to Download
+            <a href="/download/Hein Zaw Oo - CV.pdf" target="_blank">
+                Click to View
             </a>
         </p>
     </div>
+
+    </div>
+    </div>
+
 </div>
 
 <style>

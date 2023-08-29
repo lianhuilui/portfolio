@@ -4,7 +4,7 @@
 </script>                    
 
 <div
-    class="w-full aspect-[3/2] relative"
+    class="work-img w-full aspect-[3/2] relative"
     style="background-image: url({image}); background-size: cover; background-position: center;"
 >
     <h2 class="text-xl bottom-0 right-0 absolute p-1">
@@ -16,5 +16,9 @@
     h2 {
         @apply bg-black text-white;
         @apply px-4;
+    }
+
+    .work-img {
+        border: 1px solid #ccc;
     }
 </style>

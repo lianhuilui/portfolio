@@ -118,20 +118,20 @@
 
                 <div class="px-4 md:px-0 grid grid-cols-1 sm:grid-cols-3 mx-auto h-full gap-4 content-center w-full max-w-[960px]">
 
-                    <a href="/work" class="hover:bg-green-500 block py-4" style="">
+                    <a href="/work" class="hover:bg-green-500 block pt-4 pb-8" style="">
                         <iconify-icon icon="ph:arrow-square-out-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">
                             more projects
                         </span>
                     </a> 
 
-                    <a href="/contact" class="hover:bg-yellow-500 block py-4" style="">
+                    <a href="/contact" class="hover:bg-yellow-500 block pt-4 pb-8" style="">
                         <!-- <iconify-icon icon="heroicons-solid:mail" class="text-5xl align-middle"></iconify-icon> -->
                         <iconify-icon icon="ph:envelope-simple-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">contact me</span>
                     </a>
 
-                    <a href="#" class="block hover:bg-red-500 py-4" style="">
+                    <a href="/download/Hein Zaw Oo - CV.pdf" target="_blank" class="block hover:bg-red-500 pt-4 pb-8" style="">
                         <iconify-icon icon="ph:file-pdf-light" class="text-5xl align-middle"></iconify-icon>
                         <span class="block text-2xl align-middle">résumé</span>
                     </a>
@@ -517,6 +517,10 @@
     #tags {
         animation-name: tags;
         text-align: center;
+    }
+    #tags > div {
+        max-width: 1000px;
+        margin: 0 auto;
     }
     @keyframes tags {
     from, 40% { top: 100vh; opacity: 1 }

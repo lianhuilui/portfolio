@@ -57,7 +57,7 @@
 
     <h2>House Rules Cafe (v1)</h2>
 
-    <p>Company website. Hand crafted. Hosted on VPS.</p>
+    <p>Company website. Hand crafted. Hosted on DigitalOcean VPS.</p>
 </div>
 
 <div>
@@ -68,7 +68,7 @@
 
     <h2>House Rules Cafe (v2)</h2>
 
-    <p>Company website. Built with astro. Hosted on GitHub.</p>
+    <p>Cafe website. Built with astro. Hosted on DigitalOcean App.</p>
 </div>
 
 <style>
