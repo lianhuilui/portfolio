@@ -26,7 +26,6 @@
             </p>
         </div>
 
-        {#if false}
         <div>
             <h3>
                 <iconify-icon icon="ph:linkedin-logo-light" class="text-5xl align-middle"></iconify-icon>
@@ -39,7 +38,6 @@
                 </a>
             </p>
         </div>
-        {/if}
 
         <div>
             <h3>
